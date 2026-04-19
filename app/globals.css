@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg-black: #05070A;
+  --color-bg-panel: #0B1017;
+  --color-ice: #6BD8FF;
+  --color-ice-deep: #2B9BD1;
+  --color-text-primary: #E8F4FB;
+  --color-text-dim: #7E8B98;
+  --color-border-hairline: rgba(107, 216, 255, 0.12);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+
+  --shadow-glow-sm: 0 0 18px rgba(107, 216, 255, 0.25);
+  --shadow-glow-md: 0 0 32px rgba(107, 216, 255, 0.35);
+  --shadow-glow-lg: 0 0 56px rgba(107, 216, 255, 0.45);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  background: var(--color-bg-black);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::selection {
+  background: rgba(107, 216, 255, 0.25);
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-grid-dots {
+  background-image: radial-gradient(
+    rgba(107, 216, 255, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
 }
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107, 216, 255, 0.35),
+    transparent
+  );
+}
+
+.neon-text {
+  text-shadow:
+    0 0 6px rgba(107, 216, 255, 0.9),
+    0 0 18px rgba(107, 216, 255, 0.55),
+    0 0 40px rgba(107, 216, 255, 0.3);
+}
+
+
