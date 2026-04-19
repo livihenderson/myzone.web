@@ -44,8 +44,18 @@ export function Hero() {
   });
 
   return (
-    <section ref={containerRef} className="relative h-[250vh]">
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden bg-grid-dots">
+    <section
+      ref={containerRef}
+      // dvh (dynamic viewport height) matches the actual visible viewport
+      // on mobile browsers whose URL bar shows/hides while scrolling. vh
+      // on iOS Safari includes the URL bar area, which throws off scroll-
+      // driven progress calculations and makes the sticky pin feel off.
+      // 150 keeps the unpin-and-scroll-off motion at 1:1 (~100dvh), leaves
+      // the animation window intact, and trims the post-composition hold
+      // so the slogan doesn't linger frozen on screen.
+      className="relative h-[150dvh]"
+    >
+      <div className="sticky top-0 flex h-[100dvh] flex-col items-center justify-center overflow-hidden bg-grid-dots">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
