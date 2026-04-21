@@ -377,6 +377,6 @@ export const dictionary = {
       rights: "All rights reserved.",
     },
   },
-} as const;
+};
 
-export type Dictionary = typeof dictionary.cs;
+export type Dictionary = (typeof dictionary)["cs"];

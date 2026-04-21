@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 
 type Props = {
-  photos: string[];
+  photos: readonly string[];
   index: number | null;
   onClose: () => void;
   onPrev: () => void;
