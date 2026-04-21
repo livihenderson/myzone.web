@@ -6,19 +6,21 @@ export const dictionary = {
       home: "Úvod",
       about: "O nás",
       gallery: "Fotogalerie",
+      contact: "Kontakt",
+      faq: "Dotazy",
       reserve: "Rezervovat",
     },
     hero: {
       eyebrow: "SOUKROMÉ FITNESS · KLADNO",
       title: "Tvoje zóna.\nTvůj čas.",
-      sub: "Soukromé fitness pro tebe a tvou partu. Žádné fronty, žádné čekání, žádné rušivé pohledy.",
+      sub: "Soukromé fitness pro tebe a tvou partu. Žádné fronty, žádné čekání, žádné nepříjemné pohledy.",
       ctaPrimary: "Rezervovat",
       ctaGhost: "Prohlédnout prostory",
     },
     trust: {
       private: "100% soukromé",
       capacity: "Max 3 osoby + trenér",
-      access: "Přístup 24/7",
+      access: "Denně 6:00–22:00",
       location: "Kladno",
     },
     how: {
@@ -33,7 +35,7 @@ export const dictionary = {
         {
           n: "02",
           title: "Obdrž kód",
-          desc: "Unikátní kód ti přijde e-mailem těsně před tvým slotem.",
+          desc: "Unikátní kód ti přijde SMSkou těsně před tvým slotem.",
         },
         {
           n: "03",
@@ -54,19 +56,19 @@ export const dictionary = {
       cards: [
         {
           title: "Silový trénink",
-          desc: "Leg press, klec, multi-press, rohový multifunkční stroj (záda, veslování, zakopávání, kladky).",
+          desc: "Dřepovací klec, bench-pressová klec, multipress, leg press, hrazda na shyby.",
         },
         {
-          title: "Činky 2–35 kg",
-          desc: "Kompletní sada jednoručních činek ve všech váhách.",
+          title: "Kladky & stroje",
+          desc: "Nastavitelná kladková stanice, veslovací stanice, lat pulldown. Adaptéry: biceps, triceps, záda, kotníky.",
         },
         {
-          title: "Kardio",
-          desc: "Běžecký pás a prostor pro tvou rozcvičku.",
+          title: "Kardio & mobilita",
+          desc: "Běžecký pás, stepper, švihadlo, masážní roller, podložky na cvičení.",
         },
         {
-          title: "Volné váhy & doplňky",
-          desc: "Osy, zakřivená osa, lavice, gumy, podložky, kotouče.",
+          title: "Volné váhy",
+          desc: "Kotouče 220 kg, jednoruční činky 0,5–35 kg, osa rovná i zakřivená, nastavitelná lavice, odporové gumy.",
         },
       ],
     },
@@ -89,7 +91,7 @@ export const dictionary = {
         },
         {
           title: "Reproduktory & Wi-Fi",
-          desc: "Tvůj playlist, tvé tempo. Wi-Fi pro hosty samozřejmostí.",
+          desc: "Tvůj playlist, tvé tempo. Wi-Fi pro hosty je samozřejmostí.",
         },
       ],
     },
@@ -99,15 +101,18 @@ export const dictionary = {
       sub: "Na jednu rezervaci. Celý prostor patří jen vám.",
     },
     contact: {
-      eyebrow: "05 / KONTAKT",
+      eyebrow: "06 / KONTAKT",
       title: "Najdeš nás v Kladně",
-      address: "Petra Bezruče 3388, Kladno",
+      address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
-      email: "ahoj@myzone.cz",
-      hours: "Po–Ne · 24/7 po rezervaci",
+      email: "info@myzone.cz",
+      hours: "Po–Ne · 6:00–22:00 po rezervaci",
+      parkingTipLabel: "TIP — KDE ZAPARKOVAT",
+      parkingTipBody:
+        "OC Central Kladno máš 3 minuty pěšky. První 3 hodiny parkuješ zdarma.",
     },
     sleva: {
-      eyebrow: "06 / PŘEDOTEVÍRACÍ BONUS",
+      eyebrow: "05 / PŘEDOTEVÍRACÍ BONUS",
       title: "Sleva 15 % na první vstup",
       sub: "Přihlaš se před oficiálním otevřením a pošleme ti osobní slevový kód 15 %.",
       name: "Jméno",
@@ -130,11 +135,41 @@ export const dictionary = {
       body: "Spouštíme brzy. Mezitím se přihlaš na 15% slevu na hlavní stránce.",
       back: "Zpět na hlavní stránku",
     },
+    faq: {
+      eyebrow: "07 / ČASTÉ DOTAZY",
+      title: "Nejčastější otázky",
+      items: [
+        {
+          q: "Musím být členem?",
+          a: "Ne. U nás si rezervuješ jednotlivý slot bez dlouhodobého závazku — platíš jen za to, co si odcvičíš.",
+        },
+        {
+          q: "Můžu si vzít kamaráda?",
+          a: "Jasně. Jedna rezervace je až pro 3 osoby + trenéra — vezmi si partu a celý prostor patří jen vám.",
+        },
+        {
+          q: "Jak se dostanu dovnitř?",
+          a: "Po rezervaci ti těsně před slotem přijde SMSkou unikátní kód, kterým odemkneš dveře. Bez recepce, bez čekání.",
+        },
+        {
+          q: "Můžu si přivést vlastního trenéra?",
+          a: "Jasně. Trenér se nepočítá do limitu 3 osob — přijde s tebou navíc.",
+        },
+        {
+          q: "Co když budu chtít rezervaci zrušit?",
+          a: "Zrušit nebo přesunout ji můžeš zdarma nejpozději 4 hodiny před začátkem slotu.",
+        },
+        {
+          q: "Co si mám vzít s sebou?",
+          a: "Jen oblečení, boty na cvičení a ručník. Sprchové gely, drobnosti i voda jsou u nás připravené. Proteinové shaky si koupíš přímo v Aktin baru.",
+        },
+      ],
+    },
     about: {
       eyebrow: "O NÁS",
       title: "Prostor, kde si nemusíš hlídat záda",
       body: [
-        "Když jsme začínali cvičit, komerční gymy nám přišly nepříjemné. Stovky lidí, fronty, nikdo po sobě neuklidí, pohledy. Nedalo se soustředit na trénink.",
+        "Když jsme začínali cvičit, komerční gymy nám přišly nepříjemné. Stovky lidí, fronty, nikdo po sobě neuklidí, nepříjemné pohledy. Nedalo se soustředit na trénink.",
         "Chtěli jsme moderní prostor, který dá klid a soukromí. Místo, kam přijdeš ty a tvá parta, zavřete za sebou a je to jen vaše.",
         "MyZone je přesně to — tvoje zóna, tvoje pravidla, tvůj čas.",
       ],
@@ -144,7 +179,7 @@ export const dictionary = {
     gallery: {
       eyebrow: "FOTOGALERIE",
       title: "Nahlédni do MyZone",
-      sub: "Prohlédni si prostor, než u nás cvičíš poprvé.",
+      sub: "Prohlédni si prostor, než si u nás zacvičíš poprvé.",
       prev: "Předchozí",
       next: "Další",
       close: "Zavřít",
@@ -159,6 +194,8 @@ export const dictionary = {
       home: "Home",
       about: "About",
       gallery: "Gallery",
+      contact: "Contact",
+      faq: "FAQ",
       reserve: "Book now",
     },
     hero: {
@@ -171,7 +208,7 @@ export const dictionary = {
     trust: {
       private: "100% private",
       capacity: "Max 3 + trainer",
-      access: "24/7 access",
+      access: "Daily 6:00–22:00",
       location: "Kladno",
     },
     how: {
@@ -186,7 +223,7 @@ export const dictionary = {
         {
           n: "02",
           title: "Get your code",
-          desc: "A unique code lands in your inbox right before your slot.",
+          desc: "A unique code lands on your phone by SMS right before your slot.",
         },
         {
           n: "03",
@@ -207,19 +244,19 @@ export const dictionary = {
       cards: [
         {
           title: "Strength",
-          desc: "Leg press, power rack, multi-press, multi-station (back, rows, leg curls, cable stack).",
+          desc: "Squat cage, bench-press cage, multi-press, leg press, pull-up bar.",
         },
         {
-          title: "Dumbbells 2–35 kg",
-          desc: "Full dumbbell set across the weight range.",
+          title: "Cables & machines",
+          desc: "Adjustable cable station, rowing station, lat pulldown. Attachments: biceps, triceps, back, ankle.",
         },
         {
-          title: "Cardio",
-          desc: "Treadmill and space for your warm-up.",
+          title: "Cardio & mobility",
+          desc: "Treadmill, stepper, jump rope, foam roller, exercise mats.",
         },
         {
-          title: "Free weights & extras",
-          desc: "Bars, EZ bar, benches, bands, mats, plates.",
+          title: "Free weights",
+          desc: "220 kg of plates, dumbbells 0.5–35 kg, straight & EZ curl bar, adjustable bench, resistance bands.",
         },
       ],
     },
@@ -252,15 +289,18 @@ export const dictionary = {
       sub: "Per booking. The whole space is yours.",
     },
     contact: {
-      eyebrow: "05 / CONTACT",
+      eyebrow: "06 / CONTACT",
       title: "Find us in Kladno",
-      address: "Petra Bezruče 3388, Kladno",
+      address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
-      email: "hello@myzone.cz",
-      hours: "Mon–Sun · 24/7 after booking",
+      email: "info@myzone.cz",
+      hours: "Mon–Sun · 6:00–22:00 after booking",
+      parkingTipLabel: "PARKING TIP",
+      parkingTipBody:
+        "Central Kladno mall is a 3-minute walk away. First 3 hours of parking are free.",
     },
     sleva: {
-      eyebrow: "06 / PRE-LAUNCH BONUS",
+      eyebrow: "05 / PRE-LAUNCH BONUS",
       title: "15% off your first visit",
       sub: "Sign up before we open and we'll send you a personal 15% discount code.",
       name: "Name",
@@ -282,6 +322,36 @@ export const dictionary = {
       title: "Booking system in the works",
       body: "Launching soon. In the meantime, grab the 15% discount on the home page.",
       back: "Back to home",
+    },
+    faq: {
+      eyebrow: "07 / FAQ",
+      title: "Frequently asked",
+      items: [
+        {
+          q: "Do I need a membership?",
+          a: "No. You book individual slots with no long-term commitment — pay only for what you actually train.",
+        },
+        {
+          q: "Can I bring a friend?",
+          a: "Of course. One booking covers up to 3 people + a trainer — bring your crew and the whole space is yours.",
+        },
+        {
+          q: "How do I get in?",
+          a: "After booking, you'll get a unique code by SMS right before your slot — use it to unlock the door. No reception, no waiting.",
+        },
+        {
+          q: "Can I bring my own trainer?",
+          a: "Absolutely. Trainers don't count toward the 3-person limit — they come along as an extra.",
+        },
+        {
+          q: "What about cancellations?",
+          a: "You can cancel or reschedule free of charge up to 4 hours before your slot starts.",
+        },
+        {
+          q: "What should I bring?",
+          a: "Just gym clothes, shoes and a towel. Shower gels, essentials and water are on us. Protein shakes are available at the Aktin bar.",
+        },
+      ],
     },
     about: {
       eyebrow: "ABOUT",

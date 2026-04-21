@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 import { LanguageToggle } from "./LanguageToggle";
 import { Button } from "@/components/ui/Button";
+import { MyZoneMark } from "@/components/brand/MyZoneMark";
 
 export function Navbar() {
   const { t } = useT();
@@ -24,31 +24,26 @@ export function Navbar() {
     { href: "/", label: t.nav.home },
     { href: "/o-nas", label: t.nav.about },
     { href: "/fotogalerie", label: t.nav.gallery },
+    { href: "/#kontakt", label: t.nav.contact },
+    { href: "/#faq", label: t.nav.faq },
   ];
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-500 ${
           scrolled
-            ? "border-b border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/70 backdrop-blur-xl"
-            : "bg-transparent"
+            ? "border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/70 backdrop-blur-xl"
+            : "border-transparent bg-transparent"
         }`}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
           <Link
             href="/"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2.5"
             aria-label="MyZone"
           >
-            <Image
-              src="/brand/logo.png"
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7"
-              priority
-            />
+            <MyZoneMark className="h-7 w-7 text-[var(--color-ice)]" />
             <span className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-[0.2em] text-[var(--color-text-primary)]">
               MYZONE
             </span>

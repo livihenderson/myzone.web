@@ -10,15 +10,21 @@ type Screen = "book" | "code" | "unlock";
 function ScreenBook({ t }: { t: Dictionary }) {
   return (
     <div className="flex h-full flex-col gap-3 p-4 text-left">
-      <div className="text-[10px] font-mono tracking-widest text-[var(--color-ice-deep)]">
-        BOOK
-      </div>
       <div className="text-sm font-semibold">{t.how.steps[0].title}</div>
       <div className="grid grid-cols-3 gap-2">
-        {["08", "10", "12", "14", "16", "18"].map((h, i) => (
+        {(
+          [
+            ["08:00", "09:15"],
+            ["10:00", "11:15"],
+            ["12:00", "13:15"],
+            ["14:00", "15:15"],
+            ["16:00", "17:15"],
+            ["18:00", "19:15"],
+          ] as const
+        ).map(([start, end], i) => (
           <motion.div
-            key={h}
-            className={`rounded-md border px-2 py-2 text-center text-xs ${
+            key={start}
+            className={`flex flex-col items-center rounded-md border px-1.5 py-1.5 text-center leading-tight ${
               i === 3
                 ? "border-[var(--color-ice)] bg-[rgba(107,216,255,0.1)] text-[var(--color-ice)]"
                 : "border-[var(--color-border-hairline)] text-[var(--color-text-dim)]"
@@ -27,7 +33,8 @@ function ScreenBook({ t }: { t: Dictionary }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
           >
-            {h}:00
+            <span className="text-[11px] font-medium">{start}</span>
+            <span className="text-[9px] opacity-70">{end}</span>
           </motion.div>
         ))}
       </div>
@@ -40,9 +47,12 @@ function ScreenBook({ t }: { t: Dictionary }) {
 
 function ScreenCode({ t }: { t: Dictionary }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 p-4">
-      <div className="text-[10px] font-mono tracking-widest text-[var(--color-ice-deep)]">
-        {t.how.steps[1].title.toUpperCase()}
+    <div className="flex h-full flex-col items-center justify-center gap-4 p-4">
+      <div className="flex items-center gap-2 rounded-full border border-[var(--color-ice)]/30 bg-[rgba(107,216,255,0.08)] px-3 py-1">
+        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-ice)] shadow-[0_0_6px_rgba(107,216,255,0.9)]" />
+        <span className="text-[9px] font-mono tracking-widest text-[var(--color-ice)]">
+          SMS · MYZONE
+        </span>
       </div>
       <div className="flex gap-2">
         {["7", "2", "4", "9"].map((n, i) => (

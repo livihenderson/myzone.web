@@ -16,24 +16,20 @@ export function JakToFunguje() {
           <motion.div variants={fadeUp}>
             <SectionHeading eyebrow={t.how.eyebrow} title={t.how.title} />
           </motion.div>
-          <ol className="relative flex flex-col gap-8 pl-6">
-            <span className="absolute bottom-2 left-[11px] top-2 w-px bg-gradient-to-b from-[var(--color-ice)]/0 via-[var(--color-ice)]/30 to-[var(--color-ice)]/0" />
+          <ol className="flex flex-col gap-8">
             {t.how.steps.map((s) => (
               <motion.li
                 key={s.n}
                 variants={fadeUp}
-                className="relative flex gap-5"
+                className="flex gap-5 md:gap-6"
               >
-                <span className="absolute -left-6 top-1 h-[22px] w-[22px] rounded-full border border-[var(--color-ice)] bg-[var(--color-bg-black)] shadow-[0_0_14px_rgba(107,216,255,0.5)]" />
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-mono text-xs tracking-[0.25em] text-[var(--color-ice-deep)]">
-                      {s.n}
-                    </span>
-                    <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold">
-                      {s.title}
-                    </h3>
-                  </div>
+                <span className="shrink-0 font-[family-name:var(--font-display)] text-3xl font-semibold leading-none tabular-nums text-[var(--color-ice)]/60 md:text-4xl">
+                  {s.n}
+                </span>
+                <div className="flex flex-col gap-1 pt-[2px] md:pt-[3px]">
+                  <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold">
+                    {s.title}
+                  </h3>
                   <p className="max-w-md text-sm leading-relaxed text-[var(--color-text-dim)]">
                     {s.desc}
                   </p>

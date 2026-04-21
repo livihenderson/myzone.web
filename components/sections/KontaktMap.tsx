@@ -6,8 +6,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { fadeUp } from "@/lib/motion/variants";
 
+// Google Maps `q=` embed geocodes the address string directly — no need
+// to hand-maintain lat/lng coords when the address changes.
 const MAP_SRC =
-  "https://www.openstreetmap.org/export/embed.html?bbox=14.10%2C50.13%2C14.14%2C50.16&layer=mapnik&marker=50.1436%2C14.1153";
+  "https://maps.google.com/maps?q=Leo%C5%A1e%20Jan%C3%A1%C4%8Dka%20237%2C%20272%2001%20Kladno&z=16&output=embed";
 
 export function KontaktMap() {
   const { t } = useT();
@@ -42,6 +44,17 @@ export function KontaktMap() {
               </div>
             ))}
           </motion.dl>
+          <motion.aside
+            variants={fadeUp}
+            className="flex flex-col gap-2 rounded-xl border border-[var(--color-ice)]/25 bg-[var(--color-ice)]/[0.04] p-5"
+          >
+            <span className="font-mono text-xs tracking-widest text-[var(--color-ice)]">
+              {t.contact.parkingTipLabel}
+            </span>
+            <p className="text-sm leading-relaxed text-[var(--color-text-primary)]">
+              {t.contact.parkingTipBody}
+            </p>
+          </motion.aside>
         </RevealOnScroll>
         <RevealOnScroll className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[var(--color-border-hairline)]">
           <iframe
