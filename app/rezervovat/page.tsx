@@ -37,7 +37,7 @@ export default function RezervovatPage() {
               className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-ice)]"
               style={{ textShadow: "0 0 8px rgba(107,216,255,0.8)" }}
             >
-              WAIT
+              {t.reserve.wait}
             </span>
           </motion.div>
           <span className="font-mono text-xs tracking-[0.3em] text-[var(--color-ice-deep)]">
@@ -49,9 +49,14 @@ export default function RezervovatPage() {
           <p className="max-w-md text-base text-[var(--color-text-dim)] md:text-lg">
             {t.reserve.body}
           </p>
-          <Button href="/#sleva" variant="ghost">
-            {t.reserve.back}
-          </Button>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button href="/#sleva" variant="primary">
+              {t.reserve.sleva}
+            </Button>
+            <Button href="/" variant="ghost">
+              {t.reserve.back}
+            </Button>
+          </div>
         </div>
       </main>
       <Footer />

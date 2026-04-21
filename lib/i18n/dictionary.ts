@@ -134,6 +134,8 @@ export const dictionary = {
       title: "Rezervační systém připravujeme",
       body: "Spouštíme brzy. Mezitím se přihlaš na 15% slevu na hlavní stránce.",
       back: "Zpět na hlavní stránku",
+      sleva: "Chci 15% slevu",
+      wait: "VYDRŽ",
     },
     faq: {
       eyebrow: "07 / ČASTÉ DOTAZY",
@@ -322,6 +324,8 @@ export const dictionary = {
       title: "Booking system in the works",
       body: "Launching soon. In the meantime, grab the 15% discount on the home page.",
       back: "Back to home",
+      sleva: "Get 15% off",
+      wait: "WAIT",
     },
     faq: {
       eyebrow: "07 / FAQ",
