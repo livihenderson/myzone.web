@@ -106,7 +106,7 @@ export const dictionary = {
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
       email: "info@myzone.cz",
-      hours: "Po–Ne · 6:00–22:00 po rezervaci",
+      hours: "Po–Ne · 6:00–22:00",
       parkingTipLabel: "TIP — KDE ZAPARKOVAT",
       parkingTipBody:
         "OC Central Kladno máš 3 minuty pěšky. První 3 hodiny parkuješ zdarma.",
@@ -296,7 +296,7 @@ export const dictionary = {
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
       email: "info@myzone.cz",
-      hours: "Mon–Sun · 6:00–22:00 after booking",
+      hours: "Mon–Sun · 6:00–22:00",
       parkingTipLabel: "PARKING TIP",
       parkingTipBody:
         "Central Kladno mall is a 3-minute walk away. First 3 hours of parking are free.",

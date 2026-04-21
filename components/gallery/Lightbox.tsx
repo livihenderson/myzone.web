@@ -47,21 +47,21 @@ export function Lightbox({ photos, index, onClose, onPrev, onNext }: Props) {
           exit={{ opacity: 0 }}
         >
           <button
-            className="absolute right-5 top-5 rounded-full border border-[var(--color-border-hairline)] px-4 py-2 text-xs tracking-widest text-[var(--color-text-primary)] hover:text-[var(--color-ice)]"
+            className="absolute right-5 top-5 z-10 rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/60 px-4 py-2 text-xs tracking-widest text-[var(--color-text-primary)] backdrop-blur-sm hover:text-[var(--color-ice)]"
             onClick={onClose}
             aria-label={t.gallery.close}
           >
             ✕ {t.gallery.close}
           </button>
           <button
-            className="absolute left-5 top-1/2 -translate-y-1/2 rounded-full border border-[var(--color-border-hairline)] p-4 text-[var(--color-text-primary)] hover:text-[var(--color-ice)]"
+            className="absolute left-5 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/60 p-4 text-xl text-[var(--color-text-primary)] backdrop-blur-sm hover:text-[var(--color-ice)] md:block"
             onClick={onPrev}
             aria-label={t.gallery.prev}
           >
             ‹
           </button>
           <button
-            className="absolute right-5 top-1/2 -translate-y-1/2 rounded-full border border-[var(--color-border-hairline)] p-4 text-[var(--color-text-primary)] hover:text-[var(--color-ice)]"
+            className="absolute right-5 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/60 p-4 text-xl text-[var(--color-text-primary)] backdrop-blur-sm hover:text-[var(--color-ice)] md:block"
             onClick={onNext}
             aria-label={t.gallery.next}
           >
@@ -69,7 +69,7 @@ export function Lightbox({ photos, index, onClose, onPrev, onNext }: Props) {
           </button>
           <motion.div
             key={index}
-            className="relative h-[80vh] w-[92vw] max-w-6xl overflow-hidden rounded-2xl border border-[var(--color-border-hairline)]"
+            className="relative h-[72vh] w-[92vw] max-w-6xl overflow-hidden rounded-2xl border border-[var(--color-border-hairline)] md:h-[80vh]"
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
@@ -83,8 +83,24 @@ export function Lightbox({ photos, index, onClose, onPrev, onNext }: Props) {
               priority
             />
           </motion.div>
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-xs tracking-widest text-[var(--color-text-dim)]">
-            {index + 1} / {photos.length}
+          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3">
+            <button
+              className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/60 px-4 py-2 text-xl leading-none text-[var(--color-text-primary)] backdrop-blur-sm hover:text-[var(--color-ice)] md:hidden"
+              onClick={onPrev}
+              aria-label={t.gallery.prev}
+            >
+              ‹
+            </button>
+            <div className="font-mono text-xs tracking-widest text-[var(--color-text-dim)]">
+              {index + 1} / {photos.length}
+            </div>
+            <button
+              className="rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-bg-black)]/60 px-4 py-2 text-xl leading-none text-[var(--color-text-primary)] backdrop-blur-sm hover:text-[var(--color-ice)] md:hidden"
+              onClick={onNext}
+              aria-label={t.gallery.next}
+            >
+              ›
+            </button>
           </div>
         </motion.div>
       ) : null}
