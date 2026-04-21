@@ -157,7 +157,7 @@ export const dictionary = {
         },
         {
           q: "Co když budu chtít rezervaci zrušit?",
-          a: "Zrušit nebo přesunout ji můžeš zdarma nejpozději 4 hodiny před začátkem slotu.",
+          a: "Zrušit nebo přesunout ji můžeš zdarma nejpozději 24 hodin před začátkem slotu.",
         },
         {
           q: "Co si mám vzít s sebou?",
@@ -345,7 +345,7 @@ export const dictionary = {
         },
         {
           q: "What about cancellations?",
-          a: "You can cancel or reschedule free of charge up to 4 hours before your slot starts.",
+          a: "You can cancel or reschedule free of charge up to 24 hours before your slot starts.",
         },
         {
           q: "What should I bring?",
