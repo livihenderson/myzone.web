@@ -20,7 +20,18 @@ export function HeroCopy({ progress }: { progress: MotionValue<number> }) {
   return (
     <motion.div
       className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 text-center"
-      style={{ opacity, y, filter }}
+      style={{
+        opacity,
+        y,
+        filter,
+        // Safari can leave a ghost paint of blurred content when
+        // opacity → 0 unless the element has its own GPU layer. These
+        // hints force a clean composited layer so the fade to invisible
+        // actually clears the pixels.
+        willChange: "opacity, transform, filter",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
+      }}
     >
       <span className="font-mono text-xs tracking-[0.25em] text-[var(--color-ice-deep)]">
         {t.hero.eyebrow}

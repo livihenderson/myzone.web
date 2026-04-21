@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useScroll, useSpring } from "motion/react";
+import { useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { FracturePlate } from "./FracturePlate";
 import { HeroCopy } from "./HeroCopy";
 import { NeonLogo } from "./NeonLogo";
@@ -41,6 +41,18 @@ export function Hero() {
     damping: 38,
     mass: 0.4,
     restDelta: 0.0002,
+  });
+
+  // Safari-specific: scroll rubber-band at the top can leave
+  // scrollYProgress at a floating-point value like 0.0003 instead of
+  // exactly 0, and the spring settles near-but-not-at 0. That trickle
+  // is enough to leak a faint HeroCopy paint ghost behind the plate
+  // after scrolling back up. Force an exact-0 snap when the source
+  // reaches the top so every child transform cleanly resets.
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v <= 0.0005) {
+      smoothProgress.jump(0);
+    }
   });
 
   return (
