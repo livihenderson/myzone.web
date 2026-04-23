@@ -1,73 +1,55 @@
 "use client";
 
-import { useRef } from "react";
-import { useMotionValueEvent, useScroll, useSpring } from "motion/react";
+import { useEffect } from "react";
+import { animate, useMotionValue } from "motion/react";
 import { FracturePlate } from "./FracturePlate";
 import { HeroCopy } from "./HeroCopy";
 import { NeonLogo } from "./NeonLogo";
 import { ScrollLightning } from "./ScrollLightning";
 
+// Animation covers progress 0 → END. Everything past END in the child
+// components was the old "hold steady during sticky pin / scroll away"
+// region, which no longer exists.
+const END = 0.12;
+const DURATION_S = 2.8;
+
 /**
- * On load: the plate alone is fully visible, static — no logo on it, no
- * entry animation. The user sees the piece immediately.
+ * Time-driven hero intro. The client flagged that a scroll-locked
+ * animation made some visitors unsure whether they should scroll, so the
+ * sequence now plays automatically on mount while the section behaves as
+ * a normal 100dvh block — the user scrolls past it naturally.
  *
- * On scroll (during the sticky pin):
- *   - 0.000 – 0.028 : lightning bolts strike down, flash, shockwave
- *   - 0.010 – 0.022 : neon MYZONE logo flashes in at plate center
- *   - 0.013 – 0.080 : plate fractures diagonally, halves fly out and fade
- *   - 0.080 – 0.100 : neon logo grows from plate-size to full viewport
- *   - 0.100 – 0.120 : the moment it's grown, logo fades AND slogan reveals
- *                     (snappy crossfade — logo → backdrop, text sharpens in)
- *   - 0.120 – 0.600 : clean hero — slogan over muted logo, pin active
- *   - 0.600 – 1.000 : hero scrolls away, next section comes in
+ * Timeline (progress 0 → 0.12 over ~2.8s easeOut):
+ *   0.000 – 0.028 : lightning bolts strike down, flash, shockwave
+ *   0.010 – 0.022 : neon MYZONE logo flashes in at plate center
+ *   0.013 – 0.080 : plate fractures diagonally, halves fly out and fade
+ *   0.080 – 0.100 : neon logo grows from plate-size to full viewport
+ *   0.100 – 0.120 : logo dims, slogan reveals in the same crossfade
+ *   0.120 +       : final composition held
  */
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
+  const progress = useMotionValue(0);
 
-  // Raw scroll progress is fed in discrete wheel/trackpad ticks, which
-  // makes every scroll-driven transform snap between those ticks and feel
-  // choppy. Wrapping the progress in a spring smooths those jumps — every
-  // child component reads an eased value instead of the raw one, giving
-  // the hero the same fluid feel as native page scroll elsewhere on the
-  // site. Tuning: moderate stiffness + generous damping = quick to catch
-  // up, no overshoot. restDelta keeps the spring from oscillating around
-  // threshold values (the halves-unmount check in FracturePlate).
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 220,
-    damping: 38,
-    mass: 0.4,
-    restDelta: 0.0002,
-  });
+  useEffect(() => {
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Safari-specific: scroll rubber-band at the top can leave
-  // scrollYProgress at a floating-point value like 0.0003 instead of
-  // exactly 0, and the spring settles near-but-not-at 0. That trickle
-  // is enough to leak a faint HeroCopy paint ghost behind the plate
-  // after scrolling back up. Force an exact-0 snap when the source
-  // reaches the top so every child transform cleanly resets.
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v <= 0.0005) {
-      smoothProgress.jump(0);
+    if (reduceMotion) {
+      progress.set(END);
+      return;
     }
-  });
+
+    const controls = animate(progress, END, {
+      duration: DURATION_S,
+      ease: [0.22, 0.61, 0.36, 1],
+    });
+    return () => controls.stop();
+  }, [progress]);
 
   return (
-    <section
-      ref={containerRef}
-      // dvh (dynamic viewport height) matches the actual visible viewport
-      // on mobile browsers whose URL bar shows/hides while scrolling. vh
-      // on iOS Safari includes the URL bar area, which throws off scroll-
-      // driven progress calculations and makes the sticky pin feel off.
-      // 150 keeps the unpin-and-scroll-off motion at 1:1 (~100dvh), leaves
-      // the animation window intact, and trims the post-composition hold
-      // so the slogan doesn't linger frozen on screen.
-      className="relative h-[150dvh]"
-    >
-      <div className="sticky top-0 flex h-[100dvh] flex-col items-center justify-center overflow-hidden bg-grid-dots">
+    <section className="relative h-[100dvh]">
+      <div className="relative flex h-full flex-col items-center justify-center overflow-hidden bg-grid-dots">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -82,11 +64,11 @@ export function Hero() {
               "radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)",
           }}
         />
-        <ScrollLightning progress={smoothProgress} />
-        <FracturePlate progress={smoothProgress} />
-        <NeonLogo progress={smoothProgress} />
+        <ScrollLightning progress={progress} />
+        <FracturePlate progress={progress} />
+        <NeonLogo progress={progress} />
         <div className="absolute inset-0 flex items-center justify-center">
-          <HeroCopy progress={smoothProgress} />
+          <HeroCopy progress={progress} />
         </div>
       </div>
     </section>

@@ -13,13 +13,13 @@ export const dictionary = {
     hero: {
       eyebrow: "SOUKROMÉ FITNESS · KLADNO",
       title: "Tvoje zóna.\nTvůj čas.",
-      sub: "Soukromé fitness pro tebe a tvou partu. Žádné fronty, žádné čekání, žádné nepříjemné pohledy.",
+      sub: "Soukromé fitness pro tebe a tvou partu. Žádné fronty, žádné čekání.",
       ctaPrimary: "Rezervovat",
       ctaGhost: "Prohlédnout prostory",
     },
     trust: {
-      private: "100% soukromé",
-      capacity: "Max 3 osoby + trenér",
+      private: "100% soukromí",
+      capacity: "Až 4 osoby",
       access: "Denně 6:00–22:00",
       location: "Kladno",
     },
@@ -29,23 +29,23 @@ export const dictionary = {
       steps: [
         {
           n: "01",
-          title: "Rezervuj slot",
-          desc: "Vyber si volný čas přímo online. Rezervace na pár kliknutí.",
+          title: "Rezervuj si trénink",
+          desc: "Vyber si svůj termín ze 75minutových slotů. Jen pár kliknutí a máš hotovo.",
         },
         {
           n: "02",
-          title: "Obdrž kód",
-          desc: "Unikátní kód ti přijde SMSkou těsně před tvým slotem.",
+          title: "Počkej na SMS",
+          desc: "Unikátní vstupní kód ti pošleme SMSkou těsně před začátkem tréninku.",
         },
         {
           n: "03",
-          title: "Odemkni dveře",
-          desc: "Kód tě pustí do gymu. Bez recepce, bez čekání.",
+          title: "Zadej kód u dveří",
+          desc: "Kód tě pustí do gymu, žádná recepce, žádné zdržování.",
         },
         {
           n: "04",
-          title: "Cvič v klidu",
-          desc: "Celý prostor patří jen tobě a tvé partě.",
+          title: "Užij si svůj trénink",
+          desc: "Celý prostor máš jen pro sebe.",
         },
       ],
     },
@@ -75,19 +75,19 @@ export const dictionary = {
     comfort: {
       eyebrow: "03 / KOMFORT",
       title: "Staráme se o tvůj komfort",
-      sub: "Nemusíš nic nosit. Vše potřebné máme pro tebe připravené.",
+      sub: "Nemusíš si nic nosit. Vše potřebné máme pro tebe připravené.",
       items: [
         {
           title: "Šatna & sprcha",
-          desc: "Sprchový kout se vším vybavením — sprchové gely, gumičky do vlasů, tampony, vložky.",
+          desc: "Sprchový kout se vším vybavením — sprchové gely, gumičky do vlasů a veškeré hygienické potřeby.",
         },
         {
-          title: "Nespresso zdarma",
-          desc: "Káva na uvítanou nebo po tréninku. Na náklady podniku.",
+          title: "Káva zdarma",
+          desc: "Káva na uvítanou nebo po tréninku. Na účet podniku.",
         },
         {
           title: "Aktin bar",
-          desc: "Proteinové shaky, elektrolyty a tyčinky. Platba QR kódem.",
+          desc: "Proteinové shaky, elektrolyty a tyčinky. Platba pomocí QR kódu.",
         },
         {
           title: "Reproduktory & Wi-Fi",
@@ -97,12 +97,12 @@ export const dictionary = {
     },
     capacity: {
       eyebrow: "04 / KAPACITA",
-      title: "3 osoby + trenér",
+      title: "Až 4 osoby",
       sub: "Na jednu rezervaci. Celý prostor patří jen vám.",
     },
     contact: {
       eyebrow: "06 / KONTAKT",
-      title: "Najdeš nás v Kladně",
+      title: "Najdeš nás na Kladně",
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
       email: "info@myzone.cz",
@@ -147,7 +147,11 @@ export const dictionary = {
         },
         {
           q: "Můžu si vzít kamaráda?",
-          a: "Jasně. Jedna rezervace je až pro 3 osoby + trenéra — vezmi si partu a celý prostor patří jen vám.",
+          a: "Jasně. Jedna rezervace je až pro 4 osoby — vezmi si partu a celý prostor patří jen vám.",
+        },
+        {
+          q: "Jak dlouho trvá jeden slot?",
+          a: "Jeden slot má 75 minut. Dost času na pořádný trénink i rozcvičku a vychladnutí, bez toho aby ses musel/a honit s hodinami.",
         },
         {
           q: "Jak se dostanu dovnitř?",
@@ -155,7 +159,7 @@ export const dictionary = {
         },
         {
           q: "Můžu si přivést vlastního trenéra?",
-          a: "Jasně. Trenér se nepočítá do limitu 3 osob — přijde s tebou navíc.",
+          a: "Jasně. Trenér se počítá do limitu 4 osob — stačí, když se vejdete do kapacity.",
         },
         {
           q: "Co když budu chtít rezervaci zrušit?",
@@ -171,9 +175,10 @@ export const dictionary = {
       eyebrow: "O NÁS",
       title: "Prostor, kde si nemusíš hlídat záda",
       body: [
-        "Když jsme začínali cvičit, komerční gymy nám přišly nepříjemné. Stovky lidí, fronty, nikdo po sobě neuklidí, nepříjemné pohledy. Nedalo se soustředit na trénink.",
-        "Chtěli jsme moderní prostor, který dá klid a soukromí. Místo, kam přijdeš ty a tvá parta, zavřete za sebou a je to jen vaše.",
-        "MyZone je přesně to — tvoje zóna, tvoje pravidla, tvůj čas.",
+        "MyZone jsme postavili, protože nám na Kladně chybělo místo, kde se dá cvičit v klidu, bez front a se stoprocentním soustředěním jen na sebe. Už nás nebavilo čekat, až se uvolní stroj, nebo trávit půlku tréninku hledáním činek a kotoučů po celém fitku.",
+        "Rozhodli jsme se proto vytvořit prostor, kde tohle odpadá. Zapomeňte na přeplněné posilovny a nepříjemné pohledy. V MyZone je to o vás — o vašem tréninku, vaší hudbě a vašem progresu.",
+        "Při vybavování jsme sázeli na kvalitu a funkčnost, kterou ocení jak zkušení sportovci, tak začátečníci, kteří hledají bezpečné a diskrétní místo pro své první kroky. Naším cílem bylo vytvořit prostředí, kde vás nic nerozptyluje a kde máte celé fitko jen pro sebe.",
+        "MyZone je vaše zóna, kde platí vaše pravidla a kde váš čas patří jen vám. Přijďte si vyzkoušet, jaké to je trénovat v maximálním soukromí a posouvat své hranice bez zbytečných kompromisů.",
       ],
       pullquote: "Tvoje zóna. Tvoje pravidla.",
       cta: "Rezervovat slot",
@@ -203,13 +208,13 @@ export const dictionary = {
     hero: {
       eyebrow: "PRIVATE FITNESS · KLADNO",
       title: "Your zone.\nYour time.",
-      sub: "Private fitness for you and your crew. No queues, no waiting, no eyes on you.",
+      sub: "Private fitness for you and your crew. No queues, no waiting.",
       ctaPrimary: "Book now",
       ctaGhost: "See the space",
     },
     trust: {
-      private: "100% private",
-      capacity: "Max 3 + trainer",
+      private: "100% privacy",
+      capacity: "Up to 4 people",
       access: "Daily 6:00–22:00",
       location: "Kladno",
     },
@@ -219,23 +224,23 @@ export const dictionary = {
       steps: [
         {
           n: "01",
-          title: "Book a slot",
-          desc: "Pick your time online. A few clicks and you're in.",
+          title: "Book your session",
+          desc: "Pick your 75-minute time slot. A few clicks and you're done.",
         },
         {
           n: "02",
-          title: "Get your code",
-          desc: "A unique code lands on your phone by SMS right before your slot.",
+          title: "Wait for the SMS",
+          desc: "We'll send a unique entry code by SMS right before your session starts.",
         },
         {
           n: "03",
-          title: "Unlock the door",
-          desc: "Your code gets you in. No reception, no waiting.",
+          title: "Enter the code at the door",
+          desc: "The code gets you into the gym — no reception, no holdups.",
         },
         {
           n: "04",
-          title: "Train in peace",
-          desc: "The whole space is yours and your crew's.",
+          title: "Enjoy your workout",
+          desc: "The whole space is yours.",
         },
       ],
     },
@@ -269,15 +274,15 @@ export const dictionary = {
       items: [
         {
           title: "Changing room & shower",
-          desc: "Fully stocked — shower gels, hair ties, tampons, pads.",
+          desc: "Shower with everything you need — shower gels, hair ties and all essential hygiene supplies.",
         },
         {
-          title: "Free Nespresso",
-          desc: "Welcome coffee or post-workout kick. On the house.",
+          title: "Free coffee",
+          desc: "A welcome coffee or a post-workout kick. On the house.",
         },
         {
           title: "Aktin bar",
-          desc: "Protein shakes, electrolytes and bars. QR-code payment.",
+          desc: "Protein shakes, electrolytes and bars. Pay by QR code.",
         },
         {
           title: "Speakers & Wi-Fi",
@@ -287,7 +292,7 @@ export const dictionary = {
     },
     capacity: {
       eyebrow: "04 / CAPACITY",
-      title: "3 people + trainer",
+      title: "Up to 4 people",
       sub: "Per booking. The whole space is yours.",
     },
     contact: {
@@ -337,7 +342,11 @@ export const dictionary = {
         },
         {
           q: "Can I bring a friend?",
-          a: "Of course. One booking covers up to 3 people + a trainer — bring your crew and the whole space is yours.",
+          a: "Of course. One booking covers up to 4 people — bring your crew and the whole space is yours.",
+        },
+        {
+          q: "How long is one session?",
+          a: "One slot runs for 75 minutes. Plenty of time for a proper workout plus warm-up and cool-down, without racing the clock.",
         },
         {
           q: "How do I get in?",
@@ -345,7 +354,7 @@ export const dictionary = {
         },
         {
           q: "Can I bring my own trainer?",
-          a: "Absolutely. Trainers don't count toward the 3-person limit — they come along as an extra.",
+          a: "Absolutely. Your trainer counts toward the 4-person cap — just fit them into your booking.",
         },
         {
           q: "What about cancellations?",
@@ -361,9 +370,10 @@ export const dictionary = {
       eyebrow: "ABOUT",
       title: "A space where you don't have to watch your back",
       body: [
-        "When we started training, commercial gyms felt uncomfortable. Crowds, queues, nobody cleans up, eyes everywhere. You couldn't focus on a set.",
-        "We wanted a modern space that gave us calm and privacy. A place you and your crew walk into, lock the door, and it's yours.",
-        "MyZone is exactly that — your zone, your rules, your time.",
+        "We built MyZone because Kladno was missing a place where you can train in peace, without queues, with full focus on yourself. We were tired of waiting for a machine to free up or spending half a session hunting for dumbbells and plates across the gym.",
+        "So we decided to create a space where none of that matters. Forget packed gyms and eyes on your back. At MyZone it's about you — your workout, your music, your progress.",
+        "We equipped the place for quality and function, ready for seasoned athletes and for beginners looking for a safe, discreet spot to take their first steps. The goal was simple: nothing to distract you, the whole gym to yourself.",
+        "MyZone is your zone, your rules, your time. Come try what it feels like to train in full privacy and push your limits without compromise.",
       ],
       pullquote: "Your zone. Your rules.",
       cta: "Book a slot",
