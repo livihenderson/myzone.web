@@ -54,14 +54,6 @@ export default function ONasPage() {
         </section>
 
         <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
-            <blockquote className="neon-text font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              “{t.about.pullquote}”
-            </blockquote>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-5 text-center md:px-8">
             <Button href="/rezervovat">{t.about.cta}</Button>
           </div>

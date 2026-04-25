@@ -147,7 +147,7 @@ export const dictionary = {
         },
         {
           q: "Můžu si vzít kamaráda?",
-          a: "Jasně. Jedna rezervace je až pro 4 osoby — vezmi si partu a celý prostor patří jen vám.",
+          a: "Jasně. Jedna rezervace je až pro 4 osoby, platíte za rezervovaný časový slot a ne za počet osob — takže si klidně vezmi partu a celý prostor patří jen vám.",
         },
         {
           q: "Jak dlouho trvá jeden slot?",
@@ -173,14 +173,13 @@ export const dictionary = {
     },
     about: {
       eyebrow: "O NÁS",
-      title: "Prostor, kde si nemusíš hlídat záda",
+      title: "Tvoje zóna. Tvoje pravidla.",
       body: [
         "MyZone jsme postavili, protože nám na Kladně chybělo místo, kde se dá cvičit v klidu, bez front a se stoprocentním soustředěním jen na sebe. Už nás nebavilo čekat, až se uvolní stroj, nebo trávit půlku tréninku hledáním činek a kotoučů po celém fitku.",
         "Rozhodli jsme se proto vytvořit prostor, kde tohle odpadá. Zapomeňte na přeplněné posilovny a nepříjemné pohledy. V MyZone je to o vás — o vašem tréninku, vaší hudbě a vašem progresu.",
         "Při vybavování jsme sázeli na kvalitu a funkčnost, kterou ocení jak zkušení sportovci, tak začátečníci, kteří hledají bezpečné a diskrétní místo pro své první kroky. Naším cílem bylo vytvořit prostředí, kde vás nic nerozptyluje a kde máte celé fitko jen pro sebe.",
         "MyZone je vaše zóna, kde platí vaše pravidla a kde váš čas patří jen vám. Přijďte si vyzkoušet, jaké to je trénovat v maximálním soukromí a posouvat své hranice bez zbytečných kompromisů.",
       ],
-      pullquote: "Tvoje zóna. Tvoje pravidla.",
       cta: "Rezervovat slot",
     },
     gallery: {
@@ -342,7 +341,7 @@ export const dictionary = {
         },
         {
           q: "Can I bring a friend?",
-          a: "Of course. One booking covers up to 4 people — bring your crew and the whole space is yours.",
+          a: "Of course. One booking covers up to 4 people — you pay for the time slot, not per person, so bring your crew and the whole space is yours.",
         },
         {
           q: "How long is one session?",
@@ -368,14 +367,13 @@ export const dictionary = {
     },
     about: {
       eyebrow: "ABOUT",
-      title: "A space where you don't have to watch your back",
+      title: "Your zone. Your rules.",
       body: [
         "We built MyZone because Kladno was missing a place where you can train in peace, without queues, with full focus on yourself. We were tired of waiting for a machine to free up or spending half a session hunting for dumbbells and plates across the gym.",
         "So we decided to create a space where none of that matters. Forget packed gyms and eyes on your back. At MyZone it's about you — your workout, your music, your progress.",
         "We equipped the place for quality and function, ready for seasoned athletes and for beginners looking for a safe, discreet spot to take their first steps. The goal was simple: nothing to distract you, the whole gym to yourself.",
         "MyZone is your zone, your rules, your time. Come try what it feels like to train in full privacy and push your limits without compromise.",
       ],
-      pullquote: "Your zone. Your rules.",
       cta: "Book a slot",
     },
     gallery: {
