@@ -128,6 +128,23 @@ export const dictionary = {
         "Před oficiálním otevřením ti na e-mail pošleme osobní 15% slevový kód. Sleduj schránku.",
       errorRequired: "Toto pole je povinné.",
       errorEmail: "Neplatný e-mail.",
+      errorSendFailed:
+        "Odeslání se nepovedlo. Zkus to prosím za chvíli znovu, nebo nám napiš na info@myzone.cz.",
+      errorRateLimited:
+        "Zkoušíš to moc rychle. Dej tomu chvilku a zkus to znovu.",
+      errorCaptcha:
+        "Nepovedlo se ověřit, že nejsi robot. Obnov stránku a zkus to znovu.",
+      mail: {
+        subject: "Tvoje 15% sleva na MyZone",
+        preheader: "Jsi na seznamu. Slevový kód ti pošleme před otevřením.",
+        greeting: "Ahoj {name},",
+        intro:
+          "díky, že ses přihlásil/a o předotevírací slevu na MyZone. Tvoje místo na seznamu je rezervované — slevový kód ti pošleme na tenhle e-mail těsně před oficiálním otevřením.",
+        summaryTitle: "Co jsi nám napsal/a",
+        signoff: "Měj se,\nMyZone tým",
+        footerNote:
+          "Tento e-mail jsi dostal/a, protože ses přihlásil/a o 15% slevu na webu MyZone. Pokud to nebyl/a ty, prostě ho ignoruj.",
+      },
     },
     reserve: {
       status: "STATUS: V PŘÍPRAVĚ",
@@ -324,6 +341,22 @@ export const dictionary = {
         "Before we officially open, we'll email your personal 15% discount code. Watch your inbox.",
       errorRequired: "This field is required.",
       errorEmail: "Invalid email.",
+      errorSendFailed:
+        "We couldn't send your request. Please try again in a moment, or write to info@myzone.cz.",
+      errorRateLimited: "You're trying a bit too fast. Give it a minute and try again.",
+      errorCaptcha:
+        "We couldn't verify you're not a bot. Please refresh the page and try again.",
+      mail: {
+        subject: "Your 15% discount at MyZone",
+        preheader: "You're on the list. We'll email your discount before we open.",
+        greeting: "Hi {name},",
+        intro:
+          "thanks for signing up for the pre-launch discount at MyZone. Your spot on the list is reserved — we'll email your personal discount code to this address right before we officially open.",
+        summaryTitle: "What you sent us",
+        signoff: "See you soon,\nThe MyZone team",
+        footerNote:
+          "You got this email because you signed up for the 15% pre-launch discount on the MyZone website. If that wasn't you, just ignore this.",
+      },
     },
     reserve: {
       status: "STATUS: COMING SOON",

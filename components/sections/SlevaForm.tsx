@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Script from "next/script";
 import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -10,13 +11,41 @@ import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
-type Errors = Partial<Record<"name" | "email" | "source", string>>;
+type Errors = Partial<Record<"name" | "email" | "source" | "form", string>>;
+
+type Grecaptcha = {
+  ready: (cb: () => void) => void;
+  execute: (siteKey: string, opts: { action: string }) => Promise<string>;
+};
+
+declare global {
+  interface Window {
+    grecaptcha?: Grecaptcha;
+  }
+}
+
+const RECAPTCHA_ACTION = "sleva_lead";
+
+function getRecaptchaToken(siteKey: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const g = window.grecaptcha;
+    if (!g) {
+      reject(new Error("recaptcha_unavailable"));
+      return;
+    }
+    g.ready(() => {
+      g.execute(siteKey, { action: RECAPTCHA_ACTION }).then(resolve, reject);
+    });
+  });
+}
 
 export function SlevaForm() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
   const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -26,6 +55,7 @@ export function SlevaForm() {
     const phone = (form.get("phone") as string | null)?.trim() ?? "";
     const source = (form.get("source") as string | null)?.trim() ?? "";
     const message = (form.get("message") as string | null)?.trim() ?? "";
+    const company = (form.get("company") as string | null)?.trim() ?? "";
 
     const next: Errors = {};
     if (!name) next.name = t.sleva.errorRequired;
@@ -37,14 +67,63 @@ export function SlevaForm() {
     if (Object.keys(next).length > 0) return;
 
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 800));
-    console.log("[MyZone lead]", { name, email, phone, source, message });
-    setSubmitting(false);
-    setSent(true);
+
+    let recaptchaToken = "";
+    try {
+      if (!siteKey) throw new Error("missing_site_key");
+      recaptchaToken = await getRecaptchaToken(siteKey);
+    } catch {
+      setSubmitting(false);
+      setErrors({ form: t.sleva.errorCaptcha });
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          source,
+          message,
+          company,
+          locale,
+          recaptchaToken,
+        }),
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        const code = body?.error;
+        const msg =
+          code === "rate_limited"
+            ? t.sleva.errorRateLimited
+            : code === "captcha_failed"
+              ? t.sleva.errorCaptcha
+              : t.sleva.errorSendFailed;
+        setSubmitting(false);
+        setErrors({ form: msg });
+        return;
+      }
+      setSubmitting(false);
+      setSent(true);
+    } catch {
+      setSubmitting(false);
+      setErrors({ form: t.sleva.errorSendFailed });
+    }
   };
 
   return (
     <section id="sleva" className="relative py-24 md:py-32">
+      {siteKey && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
+          strategy="afterInteractive"
+        />
+      )}
       <div className="mx-auto max-w-5xl px-5 md:px-8">
         <Card className="relative overflow-hidden p-8 md:p-14">
           <div
@@ -121,10 +200,39 @@ export function SlevaForm() {
                       className="rounded-lg border border-[var(--color-border-hairline)] bg-[var(--color-bg-panel)] px-4 py-3 text-sm text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-dim)]/60 focus:border-[var(--color-ice)]"
                     />
                   </label>
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      left: "-10000px",
+                      top: "auto",
+                      width: "1px",
+                      height: "1px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <label>
+                      Company
+                      <input
+                        type="text"
+                        name="company"
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </label>
+                  </div>
                   <div className="md:col-span-2">
                     <Button type="submit" disabled={submitting}>
                       {submitting ? t.sleva.submitting : t.sleva.submit}
                     </Button>
+                    {errors.form && (
+                      <p
+                        role="alert"
+                        className="mt-3 text-sm text-[var(--color-text-dim)]"
+                      >
+                        {errors.form}
+                      </p>
+                    )}
                   </div>
                 </motion.form>
               )}
