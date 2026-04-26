@@ -15,17 +15,20 @@ export type EmailParts = {
   text: string;
 };
 
-// Mirror the site's CSS variables (app/globals.css).
-const BG = "#05070A"; //  --color-bg-black
-const PANEL = "#0B1017"; // --color-bg-panel
-const ICE = "#6BD8FF"; // --color-ice
-const ICE_DEEP = "#2B9BD1"; // --color-ice-deep
-const TEXT = "#E8F4FB"; // --color-text-primary
-const TEXT_DIM = "#7E8B98"; // --color-text-dim
-// hairline borders on the site are rgba(107,216,255,0.12); flattened
-// over #05070A and #0B1017 they read approximately as the values below.
-const HAIRLINE_BG = "#142028";
-const HAIRLINE_PANEL = "#1A2632";
+// Light-card surface chosen because Gmail mobile force-overrides dark
+// container backgrounds. The site brand still reads via the ice
+// stripe + ice eyebrows + Space Grotesk wordmark + ice CTA glow.
+const PAGE_BG = "#F4F6F9";
+const CARD_BG = "#FFFFFF";
+const INK = "#0E1116"; // dark navy ≈ site bg, used for text on white
+const INK_SOFT = "#1F2630";
+const INK_DIM = "#5A6470";
+const HAIRLINE = "#E5EAF0";
+const ICE_TINT = "#E8F8FF"; // ice with most of the saturation drained
+
+// Brand accents (verbatim from app/globals.css).
+const ICE = "#6BD8FF";
+const ICE_DEEP = "#2B9BD1";
 
 const FONT_BODY =
   '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
@@ -63,37 +66,30 @@ function renderShell(opts: {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="color-scheme" content="dark only" />
-<meta name="supported-color-schemes" content="dark only" />
+<meta name="color-scheme" content="light" />
+<meta name="supported-color-schemes" content="light" />
 <title>MyZone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="${GOOGLE_FONTS_LINK}" rel="stylesheet" />
 <style>
-  /* Stop iOS / Outlook.com / Yahoo from auto-tinting brand colors. */
-  :root { color-scheme: dark only; supported-color-schemes: dark only; }
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table { border-collapse: collapse !important; }
-  body { margin: 0; padding: 0; background: ${BG}; }
-  a { color: ${ICE}; text-decoration: none; }
-  /* Outlook.com dark-mode hooks: keep brand contrast. */
-  [data-ogsc] .mz-text { color: ${TEXT} !important; }
-  [data-ogsc] .mz-dim  { color: ${TEXT_DIM} !important; }
-  [data-ogsc] .mz-ice  { color: ${ICE} !important; }
-  [data-ogsb] .mz-bg   { background: ${BG} !important; }
-  [data-ogsb] .mz-panel { background: ${PANEL} !important; }
+  body { margin: 0; padding: 0; background: ${PAGE_BG}; }
+  a { color: ${ICE_DEEP}; text-decoration: none; }
+  .mz-glow { box-shadow: 0 0 32px rgba(107, 216, 255, 0.45); }
 </style>
 </head>
-<body class="mz-bg" style="margin:0;padding:0;background:${BG};color:${TEXT};font-family:${FONT_BODY};">
+<body bgcolor="${PAGE_BG}" style="margin:0;padding:0;background:${PAGE_BG};color:${INK};font-family:${FONT_BODY};">
 <div style="display:none;visibility:hidden;opacity:0;height:0;width:0;overflow:hidden;mso-hide:all;">
 ${escapeHtml(opts.preheader)}
 </div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mz-bg" bgcolor="${BG}" style="background:${BG};">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${PAGE_BG}" style="background:${PAGE_BG};">
   <tr>
     <td align="center" style="padding:32px 16px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mz-panel" bgcolor="${PANEL}" style="max-width:560px;background:${PANEL};border:1px solid ${HAIRLINE_PANEL};border-radius:18px;overflow:hidden;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${CARD_BG}" style="max-width:560px;background:${CARD_BG};border:1px solid ${HAIRLINE};border-radius:18px;overflow:hidden;">
         <tr>
-          <td bgcolor="${PANEL}" style="background:${PANEL};padding:22px 28px;border-bottom:1px solid ${HAIRLINE_PANEL};">
+          <td bgcolor="${ICE}" style="background:${ICE};padding:20px 28px;">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td valign="middle" style="vertical-align:middle;">
@@ -102,13 +98,13 @@ ${escapeHtml(opts.preheader)}
                       <td valign="middle" style="vertical-align:middle;padding-right:10px;">
                         <img src="${escapeHtml(logoUrl())}" alt="" width="22" height="27" style="display:block;border:0;outline:none;text-decoration:none;width:22px;height:27px;" />
                       </td>
-                      <td valign="middle" class="mz-ice" style="vertical-align:middle;font-family:${FONT_DISPLAY};font-weight:600;letter-spacing:0.22em;color:${ICE};font-size:14px;">
+                      <td valign="middle" style="vertical-align:middle;font-family:${FONT_DISPLAY};font-weight:700;letter-spacing:0.22em;color:${INK};font-size:14px;">
                         MYZONE
                       </td>
                     </tr>
                   </table>
                 </td>
-                <td align="right" valign="middle" class="mz-dim" style="vertical-align:middle;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:${TEXT_DIM};">
+                <td align="right" valign="middle" style="vertical-align:middle;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:${INK};opacity:0.78;">
                   ${escapeHtml(opts.eyebrow)}
                 </td>
               </tr>
@@ -116,17 +112,17 @@ ${escapeHtml(opts.preheader)}
           </td>
         </tr>
         <tr>
-          <td bgcolor="${PANEL}" class="mz-panel" style="background:${PANEL};padding:34px 28px 8px 28px;">
+          <td bgcolor="${CARD_BG}" style="background:${CARD_BG};padding:36px 28px 8px 28px;">
             ${opts.bodyInner}
           </td>
         </tr>
         <tr>
-          <td bgcolor="${PANEL}" class="mz-panel mz-dim" style="background:${PANEL};padding:22px 28px 26px 28px;border-top:1px solid ${HAIRLINE_PANEL};color:${TEXT_DIM};font-family:${FONT_BODY};font-size:11px;line-height:1.7;">
+          <td bgcolor="${CARD_BG}" style="background:${CARD_BG};padding:22px 28px 26px 28px;border-top:1px solid ${HAIRLINE};color:${INK_DIM};font-family:${FONT_BODY};font-size:11px;line-height:1.7;">
             ${opts.footerHtml}
           </td>
         </tr>
       </table>
-      <div class="mz-dim" style="max-width:560px;margin:14px auto 0;color:${TEXT_DIM};font-family:${FONT_BODY};font-size:10px;letter-spacing:0.16em;text-transform:uppercase;line-height:1.6;text-align:center;">
+      <div style="max-width:560px;margin:14px auto 0;color:${INK_DIM};font-family:${FONT_BODY};font-size:10px;letter-spacing:0.18em;text-transform:uppercase;line-height:1.6;text-align:center;">
         MyZone · Leoše Janáčka 237, Kladno · Po–Ne 6:00–22:00
       </div>
     </td>
@@ -138,22 +134,24 @@ ${escapeHtml(opts.preheader)}
 
 function summaryRowHtml(label: string, value: string): string {
   return `<tr>
-    <td style="padding:12px 16px;border-bottom:1px solid ${HAIRLINE_PANEL};font-family:${FONT_BODY};font-size:10px;color:${TEXT_DIM};text-transform:uppercase;letter-spacing:0.18em;width:38%;vertical-align:top;" class="mz-dim">${escapeHtml(label)}</td>
-    <td style="padding:12px 16px;border-bottom:1px solid ${HAIRLINE_PANEL};font-family:${FONT_BODY};font-size:14px;color:${TEXT};vertical-align:top;line-height:1.55;" class="mz-text">${escapeHtml(value).replace(/\n/g, "<br />")}</td>
+    <td style="padding:13px 18px;border-bottom:1px solid ${HAIRLINE};font-family:${FONT_BODY};font-size:10px;color:${INK_DIM};text-transform:uppercase;letter-spacing:0.18em;width:38%;vertical-align:top;">${escapeHtml(label)}</td>
+    <td style="padding:13px 18px;border-bottom:1px solid ${HAIRLINE};font-family:${FONT_BODY};font-size:14px;color:${INK};vertical-align:top;line-height:1.55;">${escapeHtml(value).replace(/\n/g, "<br />")}</td>
   </tr>`;
 }
 
 function summaryCard(rowsHtml: string): string {
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${BG}" class="mz-bg" style="background:${BG};border:1px solid ${HAIRLINE_BG};border-radius:14px;overflow:hidden;margin:0 0 28px 0;">
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${CARD_BG}" style="background:${CARD_BG};border:1px solid ${HAIRLINE};border-top:2px solid ${ICE};border-radius:14px;overflow:hidden;margin:0 0 28px 0;">
     ${rowsHtml}
   </table>`;
 }
 
 function ctaButton(href: string, label: string): string {
+  // Inverse of the on-site Button: dark pill + ice text, with a faint
+  // ice glow via box-shadow that survives most clients.
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0">
       <tr>
-        <td bgcolor="${ICE}" class="mz-ice" style="background:${ICE};border-radius:999px;">
-          <a href="${escapeHtml(href)}" style="display:inline-block;padding:13px 26px;font-family:${FONT_DISPLAY};font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:${BG};text-decoration:none;border:1px solid ${ICE};border-radius:999px;">
+        <td bgcolor="${INK}" class="mz-glow" style="background:${INK};border-radius:999px;box-shadow:0 0 32px rgba(107, 216, 255, 0.45);">
+          <a href="${escapeHtml(href)}" style="display:inline-block;padding:14px 28px;font-family:${FONT_DISPLAY};font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:${ICE};text-decoration:none;border:1px solid ${INK};border-radius:999px;">
             ${escapeHtml(label)}
           </a>
         </td>
@@ -198,24 +196,24 @@ export function submitterConfirmation(
   ].join("");
 
   const bodyInner = `
-    <p class="mz-dim" style="margin:0 0 10px 0;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};">
+    <p style="margin:0 0 12px 0;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};font-weight:600;">
       ${escapeHtml(t.eyebrow)}
     </p>
-    <h1 class="mz-text" style="margin:0 0 22px 0;font-family:${FONT_DISPLAY};font-size:30px;line-height:1.15;color:${TEXT};font-weight:600;letter-spacing:-0.01em;text-shadow:0 0 18px rgba(107,216,255,0.25);">
+    <h1 style="margin:0 0 24px 0;font-family:${FONT_DISPLAY};font-size:30px;line-height:1.15;color:${INK};font-weight:600;letter-spacing:-0.01em;">
       ${escapeHtml(t.title)}
     </h1>
-    <p class="mz-text" style="margin:0 0 14px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.6;color:${TEXT};">
+    <p style="margin:0 0 14px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.6;color:${INK};">
       ${escapeHtml(greeting)}
     </p>
-    <p class="mz-dim" style="margin:0 0 28px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.7;color:${TEXT_DIM};">
+    <p style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.7;color:${INK_SOFT};">
       ${escapeHtml(e.intro)}
     </p>
-    <p class="mz-ice" style="margin:0 0 12px 0;font-family:${FONT_DISPLAY};font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};">
+    <p style="margin:0 0 12px 0;font-family:${FONT_DISPLAY};font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};">
       ${escapeHtml(e.summaryTitle)}
     </p>
     ${summaryCard(rows)}
     ${ctaButton(siteUrl(), labels.cta)}
-    <p class="mz-text" style="margin:32px 0 0 0;font-family:${FONT_BODY};font-size:14px;line-height:1.7;color:${TEXT};white-space:pre-line;">
+    <p style="margin:34px 0 0 0;font-family:${FONT_BODY};font-size:14px;line-height:1.7;color:${INK};white-space:pre-line;">
 ${escapeHtml(e.signoff)}
     </p>
   `;
@@ -224,7 +222,7 @@ ${escapeHtml(e.signoff)}
     preheader: e.preheader,
     eyebrow: labels.eyebrow,
     bodyInner,
-    footerHtml: `${escapeHtml(e.footerNote)}<br /><br /><span style="color:${TEXT_DIM};">MyZone · </span><a href="${escapeHtml(siteUrl())}" style="color:${ICE};text-decoration:none;">${escapeHtml(siteUrl().replace(/^https?:\/\//, ""))}</a>`,
+    footerHtml: `${escapeHtml(e.footerNote)}<br /><br /><span style="color:${INK_DIM};">MyZone · </span><a href="${escapeHtml(siteUrl())}" style="color:${ICE_DEEP};text-decoration:none;font-weight:500;">${escapeHtml(siteUrl().replace(/^https?:\/\//, ""))}</a>`,
   });
 
   const lines: string[] = [
@@ -276,19 +274,25 @@ export function ownerNotification(
   ].join("");
 
   const bodyInner = `
-    <p class="mz-ice" style="margin:0 0 10px 0;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};">
+    <p style="margin:0 0 12px 0;font-family:${FONT_BODY};font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${ICE_DEEP};font-weight:600;">
       05 / NOVÝ LEAD
     </p>
-    <h1 class="mz-text" style="margin:0 0 18px 0;font-family:${FONT_DISPLAY};font-size:24px;line-height:1.2;color:${TEXT};font-weight:600;letter-spacing:-0.01em;">
+    <h1 style="margin:0 0 18px 0;font-family:${FONT_DISPLAY};font-size:24px;line-height:1.2;color:${INK};font-weight:600;letter-spacing:-0.01em;">
       Sleva 15 % — nový zájemce
     </h1>
-    <p class="mz-dim" style="margin:0 0 24px 0;font-family:${FONT_BODY};font-size:14px;line-height:1.65;color:${TEXT_DIM};">
+    <p style="margin:0 0 26px 0;font-family:${FONT_BODY};font-size:14px;line-height:1.65;color:${INK_SOFT};">
       Někdo se přihlásil o předotevírací slevu. Stačí odpovědět na tento e-mail — Reply-To míří přímo na zájemce.
     </p>
     ${summaryCard(rows)}
   `;
 
-  const footerHtml = `Confirmation e-mail submitterovi: <strong class="mz-ice" style="color:${ICE};font-weight:600;">__CONFIRMATION_STATUS__</strong>`;
+  const footerHtml = `<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td bgcolor="${ICE_TINT}" style="background:${ICE_TINT};border:1px solid ${ICE};border-radius:8px;padding:8px 12px;font-family:${FONT_BODY};font-size:11px;color:${INK};">
+        Confirmation e-mail submitterovi: <strong style="color:${INK};font-weight:700;">__CONFIRMATION_STATUS__</strong>
+      </td>
+    </tr>
+  </table>`;
 
   const html = renderShell({
     preheader: `Nový lead: ${lead.name}`,
