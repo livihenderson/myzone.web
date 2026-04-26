@@ -24,6 +24,12 @@ export default function FotogaleriePage() {
                 sub={t.gallery.sub}
               />
             </motion.div>
+            <motion.p
+              variants={fadeUp}
+              className="max-w-2xl border-l border-[var(--color-ice-deep)] pl-4 text-sm italic text-[var(--color-text-dim)] md:text-base"
+            >
+              {t.gallery.disclaimer}
+            </motion.p>
           </RevealOnScroll>
           <PhotoGrid />
         </div>

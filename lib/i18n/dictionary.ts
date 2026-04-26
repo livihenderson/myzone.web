@@ -186,6 +186,8 @@ export const dictionary = {
       eyebrow: "FOTOGALERIE",
       title: "Nahlédni do MyZone",
       sub: "Prohlédni si prostor, než si u nás zacvičíš poprvé.",
+      disclaimer:
+        "Fotky jsou zatím pouze ilustrační. Skutečné fotky našeho prostoru doplníme před otevřením.",
       prev: "Předchozí",
       next: "Další",
       close: "Zavřít",
@@ -380,6 +382,8 @@ export const dictionary = {
       eyebrow: "GALLERY",
       title: "Look inside MyZone",
       sub: "See the space before your first session.",
+      disclaimer:
+        "Photos are illustrative for now. We'll add real photos of the space before we open.",
       prev: "Previous",
       next: "Next",
       close: "Close",

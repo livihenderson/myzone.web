@@ -31,6 +31,7 @@ export function Footer() {
             <div>{t.contact.address}</div>
             <div>{t.contact.phone}</div>
             <div>{t.contact.email}</div>
+            <div>IČO 24450758</div>
           </div>
         </div>
 
