@@ -15,17 +15,20 @@ export type EmailParts = {
   text: string;
 };
 
-// Dark all the way through — the only reliable way to keep a dark
-// brand template intact in Gmail mobile (the outer wrap is dark, so
-// Gmail's force-light bg has nothing to flip). Mirrors app/globals.css.
+// Dark all the way through. Pure white for body text because Gmail
+// mobile darkens off-whites under its "smart contrast" pass — pure
+// #FFFFFF is the one value the heuristic trusts. <font color="…">
+// wrapping is the second belt-and-suspenders: Gmail's color-darken
+// algorithm reads inline `style="color:…"` but skips the legacy
+// <font> color attribute, so any text wrapped in <font> survives.
 const BG = "#05070A"; //  --color-bg-black
 const CARD = "#0B1017"; // --color-bg-panel
 const INSET = "#11171F"; // slight elevation above CARD
-const HAIRLINE = "#1A2632"; // visible border on CARD
+const HAIRLINE = "#1A2632";
 const ICE = "#6BD8FF"; // --color-ice
-const TEXT = "#E8F4FB"; // --color-text-primary
-const TEXT_DIM = "#7E8B98"; // --color-text-dim
-const TEXT_DEEP_DIM = "#5A6470"; // for the address mini-line
+const TEXT = "#FFFFFF";
+const TEXT_DIM = "#A8B3C0";
+const TEXT_DEEP_DIM = "#7B8694";
 
 const FONT_BODY =
   '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
@@ -42,6 +45,13 @@ function escapeHtml(input: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+// Gmail mobile auto-darkens text whose color is set only via inline
+// CSS. Wrapping in <font color="…"> with mso-color-alt locks the
+// color in across Gmail mobile, Outlook, and Apple Mail.
+function ft(color: string, html: string): string {
+  return `<font color="${color}"><span style="color:${color};mso-color-alt:${color};">${html}</span></font>`;
 }
 
 function siteUrl(): string {
@@ -71,8 +81,7 @@ function renderShell(opts: {
   table { border-collapse: collapse !important; }
   body { margin: 0 !important; padding: 0 !important; background: ${BG} !important; }
   a { color: ${ICE}; text-decoration: none; }
-  /* Outlook.com / iOS dark-mode hooks: keep brand contrast where they
-     try to invert. */
+  /* Outlook.com / iOS dark-mode hooks. */
   [data-ogsc] .mz-text { color: ${TEXT} !important; }
   [data-ogsc] .mz-dim  { color: ${TEXT_DIM} !important; }
   [data-ogsc] .mz-ice  { color: ${ICE} !important; }
@@ -91,11 +100,11 @@ ${escapeHtml(opts.preheader)}
       <table role="presentation" class="mz-card" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${CARD}" style="max-width:560px;background:${CARD};border:1px solid ${HAIRLINE};border-radius:16px;overflow:hidden;">
         <tr>
           <td class="mz-card" bgcolor="${CARD}" align="center" style="background:${CARD};padding:52px 32px 26px 32px;">
-            <div class="mz-ice" style="font-family:${FONT_DISPLAY};font-size:30px;font-weight:600;letter-spacing:0.08em;color:${ICE};line-height:1;">
-              MYZONE
+            <div style="font-family:${FONT_DISPLAY};font-size:30px;font-weight:600;letter-spacing:0.08em;line-height:1;">
+              ${ft(ICE, "MYZONE")}
             </div>
-            <div class="mz-dim" style="margin-top:12px;font-family:${FONT_BODY};font-size:11px;font-weight:500;letter-spacing:0.34em;text-transform:uppercase;color:${TEXT_DIM};">
-              ${escapeHtml(opts.subtitle)}
+            <div style="margin-top:12px;font-family:${FONT_BODY};font-size:11px;font-weight:500;letter-spacing:0.34em;text-transform:uppercase;">
+              ${ft(TEXT_DIM, escapeHtml(opts.subtitle))}
             </div>
           </td>
         </tr>
@@ -120,8 +129,8 @@ ${escapeHtml(opts.preheader)}
           </td>
         </tr>
       </table>
-      <div class="mz-dim" style="max-width:560px;margin:18px auto 0;color:${TEXT_DEEP_DIM};font-family:${FONT_BODY};font-size:10px;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;line-height:1.6;text-align:center;">
-        Leoše Janáčka 237 · Kladno · Po–Ne 6:00–22:00
+      <div style="max-width:560px;margin:18px auto 0;font-family:${FONT_BODY};font-size:10px;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;line-height:1.6;text-align:center;">
+        ${ft(TEXT_DEEP_DIM, "Leoše Janáčka 237 · Kladno · Po–Ne 6:00–22:00")}
       </div>
     </td>
   </tr>
@@ -130,14 +139,12 @@ ${escapeHtml(opts.preheader)}
 </html>`;
 }
 
-// Editorial "quote block" — ice strip + slight-elevation inset.
-// Two-column TD trick is more reliable than border-left in Outlook.
-function quoteBlock(headingHtml: string, innerHtml: string): string {
+function quoteBlock(headingPlain: string, innerHtml: string): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px 0;">
     <tr>
       <td bgcolor="${ICE}" width="3" style="background:${ICE};width:3px;line-height:0;font-size:0;">&nbsp;</td>
       <td class="mz-inset" bgcolor="${INSET}" style="background:${INSET};padding:20px 24px;">
-        ${headingHtml ? `<div class="mz-ice" style="font-family:${FONT_BODY};font-size:11px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:${ICE};margin:0 0 14px 0;">${headingHtml}</div>` : ""}
+        ${headingPlain ? `<div style="font-family:${FONT_BODY};font-size:11px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;margin:0 0 14px 0;">${ft(ICE, escapeHtml(headingPlain))}</div>` : ""}
         ${innerHtml}
       </td>
     </tr>
@@ -147,8 +154,8 @@ function quoteBlock(headingHtml: string, innerHtml: string): string {
 function fieldStack(label: string, value: string, isLast = false): string {
   return `<tr>
     <td style="padding:0 0 ${isLast ? "0" : "16px"} 0;">
-      <div class="mz-dim" style="font-family:${FONT_BODY};font-size:10px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:${TEXT_DIM};margin:0 0 5px 0;">${escapeHtml(label)}</div>
-      <div class="mz-text" style="font-family:${FONT_BODY};font-size:15px;line-height:1.55;color:${TEXT};font-weight:400;">${escapeHtml(value).replace(/\n/g, "<br />")}</div>
+      <div style="font-family:${FONT_BODY};font-size:10px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;margin:0 0 5px 0;">${ft(TEXT_DIM, escapeHtml(label))}</div>
+      <div style="font-family:${FONT_BODY};font-size:15px;line-height:1.55;font-weight:400;">${ft(TEXT, escapeHtml(value).replace(/\n/g, "<br />"))}</div>
     </td>
   </tr>`;
 }
@@ -197,29 +204,29 @@ export function submitterConfirmation(
   </table>`;
 
   const signoffParts = e.signoff.split("\n");
-  const signoffLine1 = escapeHtml(signoffParts[0] ?? "");
-  const signoffLine2 = escapeHtml(signoffParts[1] ?? labels.team);
+  const signoffLine1 = signoffParts[0] ?? "";
+  const signoffLine2 = signoffParts[1] ?? labels.team;
 
   const bodyInner = `
-    <p class="mz-text" style="margin:0 0 18px 0;font-family:${FONT_BODY};font-size:16px;line-height:1.6;color:${TEXT};font-weight:500;">
-      ${escapeHtml(greeting)}
+    <p style="margin:0 0 18px 0;font-family:${FONT_BODY};font-size:16px;line-height:1.6;font-weight:500;">
+      ${ft(TEXT, escapeHtml(greeting))}
     </p>
-    <p class="mz-text" style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.75;color:${TEXT};">
-      ${escapeHtml(e.intro)}
+    <p style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.75;">
+      ${ft(TEXT, escapeHtml(e.intro))}
     </p>
-    ${quoteBlock(escapeHtml(labels.summary), fieldsHtml)}
-    <p class="mz-text" style="margin:30px 0 0 0;font-family:${FONT_BODY};font-size:15px;line-height:1.7;color:${TEXT};">
-      ${signoffLine1}<br />
-      <strong class="mz-ice" style="color:${ICE};font-weight:600;">${signoffLine2}</strong>
+    ${quoteBlock(labels.summary, fieldsHtml)}
+    <p style="margin:30px 0 0 0;font-family:${FONT_BODY};font-size:15px;line-height:1.7;">
+      ${ft(TEXT, escapeHtml(signoffLine1))}<br />
+      <strong style="font-weight:600;">${ft(ICE, escapeHtml(signoffLine2))}</strong>
     </p>
   `;
 
-  const footerInner = `<div class="mz-dim" style="font-family:${FONT_BODY};font-size:12px;line-height:1.6;color:${TEXT_DIM};font-style:italic;">
-      ${escapeHtml(labels.autoReply)}
+  const footerInner = `<div style="font-family:${FONT_BODY};font-size:12px;line-height:1.6;font-style:italic;">
+      ${ft(TEXT_DIM, escapeHtml(labels.autoReply))}
     </div>
     <div style="margin-top:10px;">
-      <a href="${escapeHtml(siteUrl())}" class="mz-ice" style="font-family:${FONT_BODY};font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:${ICE};text-decoration:none;">
-        ${escapeHtml(siteUrl().replace(/^https?:\/\//, ""))}
+      <a href="${escapeHtml(siteUrl())}" style="font-family:${FONT_BODY};font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;">
+        ${ft(ICE, escapeHtml(siteUrl().replace(/^https?:\/\//, "")))}
       </a>
     </div>`;
 
@@ -284,18 +291,18 @@ export function ownerNotification(
   </table>`;
 
   const bodyInner = `
-    <p class="mz-text" style="margin:0 0 18px 0;font-family:${FONT_BODY};font-size:16px;line-height:1.6;color:${TEXT};font-weight:500;">
-      Nový zájemce o předotevírací slevu.
+    <p style="margin:0 0 18px 0;font-family:${FONT_BODY};font-size:16px;line-height:1.6;font-weight:500;">
+      ${ft(TEXT, "Nový zájemce o předotevírací slevu.")}
     </p>
-    <p class="mz-text" style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.75;color:${TEXT};">
-      Stačí odpovědět na tento e-mail&nbsp;— Reply-To míří přímo na zájemce.
+    <p style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.75;">
+      ${ft(TEXT, "Stačí odpovědět na tento e-mail&nbsp;— Reply-To míří přímo na zájemce.")}
     </p>
     ${quoteBlock("Zájemce", leadFieldsHtml)}
     ${quoteBlock("Technická data", techFieldsHtml)}
   `;
 
-  const footerInner = `<div class="mz-dim" style="font-family:${FONT_BODY};font-size:12px;line-height:1.6;color:${TEXT_DIM};">
-      Confirmation e-mail submitterovi: <strong class="mz-ice" style="color:${ICE};font-weight:600;">__CONFIRMATION_STATUS__</strong>
+  const footerInner = `<div style="font-family:${FONT_BODY};font-size:12px;line-height:1.6;">
+      ${ft(TEXT_DIM, "Confirmation e-mail submitterovi:")} <strong style="font-weight:600;">${ft(ICE, "__CONFIRMATION_STATUS__")}</strong>
     </div>`;
 
   const html = renderShell({
