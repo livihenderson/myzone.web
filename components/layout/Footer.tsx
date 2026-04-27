@@ -29,7 +29,6 @@ export function Footer() {
           </div>
           <div className="space-y-1 text-[var(--color-text-dim)]">
             <div>{t.contact.address}</div>
-            <div>{t.contact.phone}</div>
             <div>{t.contact.email}</div>
             <div>IČO 24450758</div>
           </div>

@@ -29,7 +29,6 @@ export function KontaktMap() {
           >
             {[
               { k: "Adresa", v: t.contact.address },
-              { k: "Telefon", v: t.contact.phone },
               { k: "E-mail", v: t.contact.email },
               { k: "Otevřeno", v: t.contact.hours },
             ].map((row) => (
