@@ -266,7 +266,6 @@ export function ownerNotification(
   },
 ): EmailParts {
   const subject = `[MyZone lead · ${meta.correlationId.slice(0, 8)}] ${lead.name}`;
-  const ts = new Date().toISOString();
 
   const leadRows = [
     { label: "Jméno", value: lead.name },
@@ -279,17 +278,6 @@ export function ownerNotification(
     ${leadRows.map((r, i) => fieldStack(r.label, r.value, i === leadRows.length - 1)).join("")}
   </table>`;
 
-  const techRows = [
-    { label: "Locale", value: meta.locale },
-    { label: "IP", value: meta.ip },
-    { label: "User-Agent", value: meta.userAgent ?? "—" },
-    { label: "Čas (UTC)", value: ts },
-    { label: "Correlation ID", value: meta.correlationId },
-  ];
-  const techFieldsHtml = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-    ${techRows.map((r, i) => fieldStack(r.label, r.value, i === techRows.length - 1)).join("")}
-  </table>`;
-
   const bodyInner = `
     <p style="margin:0 0 18px 0;font-family:${FONT_BODY};font-size:16px;line-height:1.6;font-weight:500;">
       ${ft(TEXT, "Nový zájemce o předotevírací slevu.")}
@@ -298,7 +286,6 @@ export function ownerNotification(
       ${ft(TEXT, "Stačí odpovědět na tento e-mail&nbsp;— Reply-To míří přímo na zájemce.")}
     </p>
     ${quoteBlock("Zájemce", leadFieldsHtml)}
-    ${quoteBlock("Technická data", techFieldsHtml)}
   `;
 
   const footerInner = `<div style="font-family:${FONT_BODY};font-size:12px;line-height:1.6;">
@@ -314,15 +301,12 @@ export function ownerNotification(
 
   const lines: string[] = [
     `MYZONE — Nový lead`,
-    `Correlation ID: ${meta.correlationId}`,
     ``,
     `Stačí odpovědět na tento e-mail — Reply-To míří přímo na zájemce.`,
     ``,
     `ZÁJEMCE`,
   ];
   for (const row of leadRows) lines.push(`${row.label}: ${row.value}`);
-  lines.push(``, `TECHNICKÁ DATA`);
-  for (const row of techRows) lines.push(`${row.label}: ${row.value}`);
   lines.push(``, `Confirmation e-mail submitterovi: __CONFIRMATION_STATUS__`);
 
   return {
