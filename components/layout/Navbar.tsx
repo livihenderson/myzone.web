@@ -8,6 +8,9 @@ import { LanguageToggle } from "./LanguageToggle";
 import { Button } from "@/components/ui/Button";
 import { MyZoneMark } from "@/components/brand/MyZoneMark";
 
+const RESERVINE_URL = "https://myzonegym.reservine.me";
+const RESERVINE_BRANCH = "50";
+
 export function Navbar() {
   const { t } = useT();
   const [scrolled, setScrolled] = useState(false);
@@ -64,9 +67,13 @@ export function Navbar() {
 
           <div className="hidden items-center gap-4 md:flex">
             <LanguageToggle />
-            <Button href="/rezervovat" variant="primary">
-              {t.nav.reserve}
-            </Button>
+            <reservine-button
+              asWrapper
+              reservationUrl={RESERVINE_URL}
+              branch={RESERVINE_BRANCH}
+            >
+              <Button variant="primary">{t.nav.reserve}</Button>
+            </reservine-button>
           </div>
 
           <button
@@ -118,13 +125,15 @@ export function Navbar() {
             </ul>
             <div className="flex items-center justify-between gap-4 p-6">
               <LanguageToggle />
-              <Button
-                href="/rezervovat"
-                variant="primary"
-                onClick={() => setOpen(false)}
+              <reservine-button
+                asWrapper
+                reservationUrl={RESERVINE_URL}
+                branch={RESERVINE_BRANCH}
               >
-                {t.nav.reserve}
-              </Button>
+                <Button variant="primary" onClick={() => setOpen(false)}>
+                  {t.nav.reserve}
+                </Button>
+              </reservine-button>
             </div>
           </motion.div>
         ) : null}

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -50,6 +51,12 @@ export default function RootLayout({
           Přeskočit na obsah
         </a>
         <Providers>{children}</Providers>
+        {/* Reservine booking widget — injected into <head>, defined before
+            hydration so the <reservine-button> wrapper upgrades on first paint. */}
+        <Script
+          src="https://unpkg.com/reservine-button@latest"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );

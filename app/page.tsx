@@ -7,7 +7,6 @@ import { Vybaveni } from "@/components/sections/Vybaveni";
 import { Komfort } from "@/components/sections/Komfort";
 import { Kapacita } from "@/components/sections/Kapacita";
 import { KontaktMap } from "@/components/sections/KontaktMap";
-import { SlevaForm } from "@/components/sections/SlevaForm";
 import { FAQ } from "@/components/sections/FAQ";
 
 export default function HomePage() {
@@ -21,7 +20,6 @@ export default function HomePage() {
         <Vybaveni />
         <Komfort />
         <Kapacita />
-        <SlevaForm />
         <KontaktMap />
         <FAQ />
       </main>
