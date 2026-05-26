@@ -6,7 +6,7 @@ export const gymPhotos: readonly string[] = [
   "/photos/img_3712-v2.webp",
   "/photos/img_3713-v2.webp",
   "/photos/img_3715-v2.webp",
-  "/photos/img_3716-v2.webp",
+  "/photos/img_3716-v3.webp",
   "/photos/img_3717-v2.webp",
   "/photos/img_3723-v2.webp",
   "/photos/img_3724-v2.webp",
