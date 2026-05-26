@@ -90,8 +90,8 @@ export const dictionary = {
           desc: "Proteinové shaky, elektrolyty a tyčinky. Platba pomocí QR kódu.",
         },
         {
-          title: "Reproduktory & Wi-Fi",
-          desc: "Tvůj playlist, tvé tempo. Wi-Fi pro hosty je samozřejmostí.",
+          title: "Wi-Fi",
+          desc: "Wi-Fi pro hosty je u nás samozřejmostí.",
         },
       ],
     },
@@ -105,7 +105,7 @@ export const dictionary = {
       title: "Najdeš nás na Kladně",
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
-      email: "info@myzone.cz",
+      email: "info@myzonegym.cz",
       hours: "Po–Ne · 6:00–22:00",
       parkingTipLabel: "TIP — KDE ZAPARKOVAT",
       parkingTipBody:
@@ -129,7 +129,7 @@ export const dictionary = {
       errorRequired: "Toto pole je povinné.",
       errorEmail: "Neplatný e-mail.",
       errorSendFailed:
-        "Odeslání se nepovedlo. Zkus to prosím za chvíli znovu, nebo nám napiš na info@myzone.cz.",
+        "Odeslání se nepovedlo. Zkus to prosím za chvíli znovu, nebo nám napiš na info@myzonegym.cz.",
       errorRateLimited:
         "Zkoušíš to moc rychle. Dej tomu chvilku a zkus to znovu.",
       errorCaptcha:
@@ -303,8 +303,8 @@ export const dictionary = {
           desc: "Protein shakes, electrolytes and bars. Pay by QR code.",
         },
         {
-          title: "Speakers & Wi-Fi",
-          desc: "Your playlist, your pace. Wi-Fi for guests, obviously.",
+          title: "Wi-Fi",
+          desc: "Wi-Fi for guests, obviously.",
         },
       ],
     },
@@ -318,7 +318,7 @@ export const dictionary = {
       title: "Find us in Kladno",
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 000 000 000",
-      email: "info@myzone.cz",
+      email: "info@myzonegym.cz",
       hours: "Mon–Sun · 6:00–22:00",
       parkingTipLabel: "PARKING TIP",
       parkingTipBody:
@@ -342,7 +342,7 @@ export const dictionary = {
       errorRequired: "This field is required.",
       errorEmail: "Invalid email.",
       errorSendFailed:
-        "We couldn't send your request. Please try again in a moment, or write to info@myzone.cz.",
+        "We couldn't send your request. Please try again in a moment, or write to info@myzonegym.cz.",
       errorRateLimited: "You're trying a bit too fast. Give it a minute and try again.",
       errorCaptcha:
         "We couldn't verify you're not a bot. Please refresh the page and try again.",

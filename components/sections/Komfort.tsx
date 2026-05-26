@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { fadeUp } from "@/lib/motion/variants";
 
-const pictos = ["♻", "☕", "◈", "♪"];
+const pictos = ["♻", "☕", "◈", "📶"];
 
 export function Komfort() {
   const { t } = useT();
