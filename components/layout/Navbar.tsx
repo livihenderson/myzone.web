@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 import { LanguageToggle } from "./LanguageToggle";
 import { Button } from "@/components/ui/Button";
@@ -87,55 +87,55 @@ export function Navbar() {
         </nav>
       </header>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            key="mobile-menu"
-            className="fixed inset-0 z-50 flex flex-col bg-[var(--color-bg-black)]/95 backdrop-blur-xl md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {/* Kept mounted (not conditionally rendered) and toggled via opacity so
+          the <reservine-button> inside is never disconnected from the DOM.
+          Unmounting it fires the web component's disconnectedCallback, which
+          $destroy()s and tears down a drawer it just opened. */}
+      <motion.div
+        className="fixed inset-0 z-50 flex flex-col bg-[var(--color-bg-black)]/95 backdrop-blur-xl md:hidden"
+        initial={false}
+        animate={{ opacity: open ? 1 : 0 }}
+        style={{ pointerEvents: open ? "auto" : "none" }}
+        inert={!open}
+      >
+        <div className="flex h-16 items-center justify-between px-5">
+          <span className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-[0.2em]">
+            MYZONE
+          </span>
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close"
+            className="rounded-md border border-[var(--color-border-hairline)] px-3 py-1 text-sm"
           >
-            <div className="flex h-16 items-center justify-between px-5">
-              <span className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-[0.2em]">
-                MYZONE
-              </span>
-              <button
+            ✕
+          </button>
+        </div>
+        <ul className="flex flex-1 flex-col items-center justify-center gap-8">
+          {links.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
                 onClick={() => setOpen(false)}
-                aria-label="Close"
-                className="rounded-md border border-[var(--color-border-hairline)] px-3 py-1 text-sm"
+                className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight"
               >
-                ✕
-              </button>
-            </div>
-            <ul className="flex flex-1 flex-col items-center justify-center gap-8">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="flex items-center justify-between gap-4 p-6">
-              <LanguageToggle />
-              <reservine-button
-                asWrapper
-                reservationUrl={RESERVINE_URL}
-                branch={RESERVINE_BRANCH}
-              >
-                <Button variant="primary" onClick={() => setOpen(false)}>
-                  {t.nav.reserve}
-                </Button>
-              </reservine-button>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="flex items-center justify-between gap-4 p-6">
+          <LanguageToggle />
+          <reservine-button
+            asWrapper
+            reservationUrl={RESERVINE_URL}
+            branch={RESERVINE_BRANCH}
+          >
+            <Button variant="primary" onClick={() => setOpen(false)}>
+              {t.nav.reserve}
+            </Button>
+          </reservine-button>
+        </div>
+      </motion.div>
     </>
   );
 }
