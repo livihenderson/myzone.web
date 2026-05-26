@@ -1,18 +1,34 @@
-// Stock gym photos (moody/dark). Replace with real MyZone photos later.
-// Uses Unsplash's direct image CDN. Listed in next.config.ts remotePatterns.
-const BASE = "https://images.unsplash.com";
-const PARAMS = "auto=format&fit=crop&w=1600&q=80";
-
+// Real MyZone gym photos, served locally from /public/photos.
+// Converted from HEIC originals to web-sized WebP (longest edge 1600px, q80).
 export const gymPhotos: readonly string[] = [
-  `${BASE}/photo-1534438327276-14e5300c3a48?${PARAMS}`,
-  `${BASE}/photo-1571019613454-1cb2f99b2d8b?${PARAMS}`,
-  `${BASE}/photo-1517836357463-d25dfeac3438?${PARAMS}`,
-  `${BASE}/photo-1558611848-73f7eb4001a1?${PARAMS}`,
-  `${BASE}/photo-1623874514711-0f321325f318?${PARAMS}`,
-  `${BASE}/photo-1540497077202-7c8a3999166f?${PARAMS}`,
-  `${BASE}/photo-1593079831268-3381b0db4a77?${PARAMS}`,
-  `${BASE}/photo-1581009146145-b5ef050c2e1e?${PARAMS}`,
-  `${BASE}/photo-1584735935682-2f2b69dff9d2?${PARAMS}`,
+  "/photos/img_3704-v2.webp",
+  "/photos/img_3708-v2.webp",
+  "/photos/img_3712-v2.webp",
+  "/photos/img_3713-v2.webp",
+  "/photos/img_3715-v2.webp",
+  "/photos/img_3716-v2.webp",
+  "/photos/img_3717-v2.webp",
+  "/photos/img_3723-v2.webp",
+  "/photos/img_3724-v2.webp",
+  "/photos/img_3727-v2.webp",
+  "/photos/img_3728-v2.webp",
+  "/photos/img_3729-v2.webp",
+  "/photos/img_3734-v2.webp",
+  "/photos/img_3738-v2.webp",
+  "/photos/img_3739-v2.webp",
+  "/photos/img_3743-v2.webp",
+  "/photos/img_3746-v2.webp",
+  "/photos/img_3751-v2.webp",
 ];
 
-export const facilityPhotos: readonly string[] = gymPhotos.slice(0, 4);
+// Facility cards in components/sections/Vybaveni.tsx, in order:
+//   0 Silový trénink  — squat rack / pull-up bar
+//   1 Kladky & stroje — cable station
+//   2 Kardio & mobilita — treadmill
+//   3 Volné váhy      — dumbbell rack & bench
+export const facilityPhotos: readonly string[] = [
+  "/photos/img_3751-v2.webp",
+  "/photos/img_3746-v2.webp",
+  "/photos/img_3739-v2.webp",
+  "/photos/img_3717-v2.webp",
+];
