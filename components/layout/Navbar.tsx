@@ -7,9 +7,7 @@ import { useT } from "@/lib/i18n/useT";
 import { LanguageToggle } from "./LanguageToggle";
 import { Button } from "@/components/ui/Button";
 import { MyZoneMark } from "@/components/brand/MyZoneMark";
-
-const RESERVINE_URL = "https://myzonegym.reservine.me";
-const RESERVINE_BRANCH = "50";
+import { RESERVINE_URL, RESERVINE_BRANCH } from "@/lib/reservine";
 
 export function Navbar() {
   const { t } = useT();

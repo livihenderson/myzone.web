@@ -3,6 +3,7 @@
 import { motion, useTransform, type MotionValue } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 import { Button } from "@/components/ui/Button";
+import { RESERVINE_URL, RESERVINE_BRANCH } from "@/lib/reservine";
 
 export function HeroCopy({ progress }: { progress: MotionValue<number> }) {
   const { t } = useT();
@@ -43,9 +44,13 @@ export function HeroCopy({ progress }: { progress: MotionValue<number> }) {
         {t.hero.sub}
       </p>
       <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <Button href="/rezervovat" variant="primary">
-          {t.hero.ctaPrimary}
-        </Button>
+        <reservine-button
+          asWrapper
+          reservationUrl={RESERVINE_URL}
+          branch={RESERVINE_BRANCH}
+        >
+          <Button variant="primary">{t.hero.ctaPrimary}</Button>
+        </reservine-button>
         <Button href="#vybaveni" variant="ghost">
           {t.hero.ctaGhost}
         </Button>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { fadeUp } from "@/lib/motion/variants";
 import { useT } from "@/lib/i18n/useT";
+import { RESERVINE_URL, RESERVINE_BRANCH } from "@/lib/reservine";
 
 export default function ONasPage() {
   const { t } = useT();
@@ -55,7 +56,13 @@ export default function ONasPage() {
 
         <section className="py-16 md:py-24">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-5 text-center md:px-8">
-            <Button href="/rezervovat">{t.about.cta}</Button>
+            <reservine-button
+              asWrapper
+              reservationUrl={RESERVINE_URL}
+              branch={RESERVINE_BRANCH}
+            >
+              <Button>{t.about.cta}</Button>
+            </reservine-button>
           </div>
         </section>
       </main>
