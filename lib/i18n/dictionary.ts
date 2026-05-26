@@ -110,6 +110,7 @@ export const dictionary = {
       parkingTipLabel: "TIP — KDE ZAPARKOVAT",
       parkingTipBody:
         "OC Central Kladno máš 3 minuty pěšky. První 3 hodiny parkuješ zdarma.",
+      terms: "Obchodní podmínky",
     },
     sleva: {
       eyebrow: "05 / PŘEDOTEVÍRACÍ BONUS",
@@ -203,8 +204,6 @@ export const dictionary = {
       eyebrow: "FOTOGALERIE",
       title: "Nahlédni do MyZone",
       sub: "Prohlédni si prostor, než si u nás zacvičíš poprvé.",
-      disclaimer:
-        "Fotky jsou zatím pouze ilustrační. Skutečné fotky našeho prostoru doplníme před otevřením.",
       prev: "Předchozí",
       next: "Další",
       close: "Zavřít",
@@ -212,6 +211,7 @@ export const dictionary = {
     footer: {
       tag: "Tvoje zóna. Tvůj čas.",
       rights: "Všechna práva vyhrazena.",
+      gdpr: "Zásady zpracování osobních údajů (GDPR)",
     },
   },
   en: {
@@ -323,6 +323,7 @@ export const dictionary = {
       parkingTipLabel: "PARKING TIP",
       parkingTipBody:
         "Central Kladno mall is a 3-minute walk away. First 3 hours of parking are free.",
+      terms: "Terms & Conditions",
     },
     sleva: {
       eyebrow: "05 / PRE-LAUNCH BONUS",
@@ -415,8 +416,6 @@ export const dictionary = {
       eyebrow: "GALLERY",
       title: "Look inside MyZone",
       sub: "See the space before your first session.",
-      disclaimer:
-        "Photos are illustrative for now. We'll add real photos of the space before we open.",
       prev: "Previous",
       next: "Next",
       close: "Close",
@@ -424,6 +423,7 @@ export const dictionary = {
     footer: {
       tag: "Your zone. Your time.",
       rights: "All rights reserved.",
+      gdpr: "Privacy Policy (GDPR)",
     },
   },
 };

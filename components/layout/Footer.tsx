@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useT } from "@/lib/i18n/useT";
 import { MyZoneMark } from "@/components/brand/MyZoneMark";
+import { RESERVINE_URL, RESERVINE_BRANCH } from "@/lib/reservine";
 
 export function Footer() {
   const { t } = useT();
@@ -31,6 +32,15 @@ export function Footer() {
             <div>{t.contact.address}</div>
             <div>{t.contact.email}</div>
             <div>IČO 24450758</div>
+            <Link
+              href="/obchodni-podminky"
+              className="block pt-2 hover:text-[var(--color-ice)]"
+            >
+              {t.contact.terms}
+            </Link>
+            <Link href="/gdpr" className="block hover:text-[var(--color-ice)]">
+              {t.footer.gdpr}
+            </Link>
           </div>
         </div>
 
@@ -48,9 +58,15 @@ export function Footer() {
             <Link href="/fotogalerie" className="hover:text-[var(--color-ice)]">
               {t.nav.gallery}
             </Link>
-            <Link href="/rezervovat" className="hover:text-[var(--color-ice)]">
-              {t.nav.reserve}
-            </Link>
+            <reservine-button
+              asWrapper
+              reservationUrl={RESERVINE_URL}
+              branch={RESERVINE_BRANCH}
+            >
+              <span className="cursor-pointer hover:text-[var(--color-ice)]">
+                {t.nav.reserve}
+              </span>
+            </reservine-button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -54,6 +55,14 @@ export function KontaktMap() {
               {t.contact.parkingTipBody}
             </p>
           </motion.aside>
+          <motion.div variants={fadeUp}>
+            <Link
+              href="/obchodni-podminky"
+              className="inline-flex items-center gap-2 text-sm text-[var(--color-text-dim)] underline decoration-[var(--color-ice)]/40 underline-offset-4 transition-colors hover:text-[var(--color-ice)]"
+            >
+              {t.contact.terms}
+            </Link>
+          </motion.div>
         </RevealOnScroll>
         <RevealOnScroll className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[var(--color-border-hairline)]">
           <iframe
@@ -67,6 +76,16 @@ export function KontaktMap() {
             loading="lazy"
           />
         </RevealOnScroll>
+      </div>
+      <div className="mx-auto mt-12 max-w-7xl px-5 md:mt-16 md:px-8">
+        <div className="border-t border-[var(--color-border-hairline)] pt-6">
+          <Link
+            href="/gdpr"
+            className="font-mono text-xs tracking-widest text-[var(--color-text-dim)] transition-colors hover:text-[var(--color-ice)]"
+          >
+            {t.footer.gdpr} →
+          </Link>
+        </div>
       </div>
     </section>
   );
