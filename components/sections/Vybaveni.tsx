@@ -43,8 +43,9 @@ export function Vybaveni() {
                 >
                   <Image
                     src={photoSlots[i]}
-                    alt=""
+                    alt={`${c.title} — MyZone Gym Kladno`}
                     fill
+                    placeholder="blur"
                     className="object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 768px) 50vw, 100vw"
                   />

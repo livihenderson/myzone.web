@@ -6,9 +6,11 @@ import { Footer } from "@/components/layout/Footer";
 // Legal text is Czech-only by design (statutory privacy notice); the Navbar
 // and Footer chrome stays bilingual via the dictionary.
 export const metadata: Metadata = {
-  title: "Zásady zpracování osobních údajů (GDPR) — MyZone",
+  // absolute → bypass the root "%s — MyZone" template (brand already in title).
+  title: { absolute: "Zásady zpracování osobních údajů (GDPR) — MyZone" },
   description:
     "Zásady zpracování osobních údajů (GDPR) provozovatele MyZone Gym, Kladno.",
+  alternates: { canonical: "/gdpr" },
 };
 
 const mail = (
