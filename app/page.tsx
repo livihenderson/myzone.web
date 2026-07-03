@@ -8,10 +8,12 @@ import { Komfort } from "@/components/sections/Komfort";
 import { Kapacita } from "@/components/sections/Kapacita";
 import { KontaktMap } from "@/components/sections/KontaktMap";
 import { FAQ } from "@/components/sections/FAQ";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd />
       <Navbar />
       <main id="main">
         <Hero />

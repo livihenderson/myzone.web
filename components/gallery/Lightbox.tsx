@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/lib/i18n/useT";
 
 type Props = {
-  photos: readonly string[];
+  photos: readonly StaticImageData[];
   index: number | null;
   onClose: () => void;
   onPrev: () => void;
@@ -76,11 +76,14 @@ export function Lightbox({ photos, index, onClose, onPrev, onNext }: Props) {
           >
             <Image
               src={photos[index]}
-              alt=""
+              alt={`Fotka z MyZone Gym Kladno ${index + 1}`}
               fill
+              // Load immediately on open (this is never the LCP, so no
+              // preload/priority — that would waste the preload budget).
+              loading="eager"
+              placeholder="blur"
               className="object-cover"
               sizes="92vw"
-              priority
             />
           </motion.div>
           <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3">

@@ -18,10 +18,40 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://myzonegym.cz";
+const SITE_DESCRIPTION =
+  "Soukromé fitness v Kladně. Tvoje zóna. Tvůj čas. Rezervuj, obdrž kód, odemkni dveře a cvič v klidu.";
+
 export const metadata: Metadata = {
-  title: "MyZone — Soukromé fitness, Kladno",
-  description:
-    "Soukromé fitness v Kladně. Tvoje zóna. Tvůj čas. Rezervuj, obdrž kód, odemkni dveře a cvič v klidu.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "MyZone — Soukromé fitness, Kladno",
+    template: "%s — MyZone",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: "MyZone Gym",
+  alternates: {
+    canonical: "/",
+    // Content is served cs/en at the same URL (en is a client-side toggle),
+    // and cs is the indexed locale — so both cs and x-default resolve here.
+    languages: {
+      cs: "/",
+      "x-default": "/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "MyZone Gym",
+    locale: "cs_CZ",
+    url: SITE_URL,
+    title: "MyZone — Soukromé fitness, Kladno",
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MyZone — Soukromé fitness, Kladno",
+    description: SITE_DESCRIPTION,
+  },
 };
 
 // Explicit viewport so iOS Safari sizes the layout to the visible area
@@ -51,11 +81,14 @@ export default function RootLayout({
           Přeskočit na obsah
         </a>
         <Providers>{children}</Providers>
-        {/* Reservine booking widget — injected into <head>, defined before
-            hydration so the <reservine-button> wrapper upgrades on first paint. */}
+        {/* Reservine booking widget. Pinned (no @latest — supply-chain +
+            cache-busting risk) and loaded afterInteractive: the
+            <reservine-button> wrapper only needs to upgrade before a user
+            clicks "Rezervovat", and it degrades to a normal <Button> link
+            until then, so it must not block first paint / hydration. */}
         <Script
-          src="https://unpkg.com/reservine-button@latest"
-          strategy="beforeInteractive"
+          src="https://unpkg.com/reservine-button@0.0.24"
+          strategy="afterInteractive"
         />
       </body>
     </html>

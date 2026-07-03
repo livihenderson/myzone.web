@@ -21,7 +21,7 @@ export function PhotoGrid() {
       >
         {ALL_PHOTOS.map((src, i) => (
           <motion.li
-            key={src}
+            key={src.src}
             variants={scaleIn}
             className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-xl border border-[var(--color-border-hairline)] transition-colors hover:border-[var(--color-ice)]/50"
           >
@@ -29,12 +29,16 @@ export function PhotoGrid() {
               type="button"
               onClick={() => setIndex(i)}
               className="absolute inset-0"
-              aria-label={`Photo ${i + 1}`}
+              aria-label={`Fotka z MyZone Gym Kladno ${i + 1}`}
             >
               <Image
                 src={src}
-                alt=""
+                alt={`Fotka z MyZone Gym Kladno ${i + 1}`}
                 fill
+                // Eager-load the first visible row (3 cols on md) so the
+                // gallery top doesn't pop in; rest stay lazy.
+                loading={i < 3 ? "eager" : "lazy"}
+                placeholder="blur"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(min-width: 768px) 33vw, 50vw"
               />

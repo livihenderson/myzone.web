@@ -23,7 +23,7 @@ export const vopTitle = "VŠEOBECNÉ OBCHODNÍ PODMÍNKY";
 export const vopIntro =
   "pro online rezervaci a pronájem soukromého prostoru prostřednictvím webu www.myzonegym.cz („VOP“)";
 
-export const vopEffectiveDate = "20. 5. 2026";
+export const vopEffectiveDate = "2. 7. 2026";
 
 export const vopSections: VopSection[] = [
   {
@@ -118,6 +118,10 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "4.5",
+        text: "Rezervovat prostor MyZone Gym může i osoba mladší 18 let. Pokud však rezervaci provádí nezletilá osoba, je povinna s sebou do Prostoru přivést zletilou osobu (starší 18 let), která za ni bude po celou dobu trvání rezervace plně odpovídat. Provedením platby a dokončením rezervace nezletilý stvrzuje, že tuto podmínku splní a zletilý doprovod si je vědom své plné odpovědnosti.",
+      },
+      {
+        id: "4.6",
         text: "U služeb volného času poskytovaných v přesně určeném termínu se neuplatní 14denní právo na odstoupení dle § 1829 OZ (výjimka dle § 1837 písm. j) OZ). Rezervace je závazná.",
       },
     ],
@@ -203,11 +207,19 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "8.3",
-        text: "Znalost vybavení a strojů: Klient potvrzuje, že ovládá techniku cvičení a umí stroje, trenažéry a činky bezpečně používat. Pokud si Klient nebo jeho doprovod není jistý funkčností nebo nastavením jakéhokoli stroje, je povinen cvičení na tomto stroji vynechat, případně si vyhledat oficiální návod výrobce (např. pomocí QR kódů / informačních materiálů v Prostoru).",
+        text: "Znalost vybavení a strojů: Klient potvrzuje, že ovládá techniku cvičení a umí stroje, trenažéry a činky bezpečně používat. Pokud si Klient nebo jeho doprovod není jistý funkčností nebo nastavením jakéhokoli stroje, je povinen cvičení na tomto stroji vynechat, případně si vyhledat oficiální návod výrobce.",
       },
       {
         id: "8.4",
-        text: "Vyloučení odpovědnosti: Provozovatel nenese jakoukoli odpovědnost za zranění, úrazy, zhoršení zdravotního stavu či úmrtí, které vznikly v důsledku nesprávného používání vybavení, nedodržení bezpečnostních zásad, neopatrnosti nebo přecenění vlastních fyzických sil Klienta či jeho doprovodu.",
+        text: "Vstup a ochrana nezletilých: Vstup osobám mladším 18 let je do Prostoru povolen výhradně v doprovodu dospělé osoby (starší 18 let). Tento dospělý doprovod plně zodpovídá za nezletilou osobu v posilovně a veškerou odpovědnost za ni bere na sebe. Kdokoli přivede do Prostoru nezletilou osobu, má striktní povinnost ji po celou dobu nepřetržitě hlídat a plně zodpovídá za její život, zdraví a veškeré škody, které v Prostoru způsobí.",
+      },
+      {
+        id: "8.5",
+        text: "Striktní zákaz pro osoby mladší 15 let: Osobám mladším 15 let je přísně zakázáno jakkoli manipulovat s jakýmkoli náčiním, zařízením či stroji, které se nacházejí v Prostoru posilovny a celé budovy. Pokud by osoba mladší 15 let tento přísný zákaz nerespektovala a způsobila by škodu na majetku v Prostoru, nebo fyzickou či zdravotní újmu sobě či dalším osobám v posilovně MyZone Gym, padá plná odpovědnost za tuto situaci na dospělou osobu, která v Prostoru působila jako dozor, případně na osobu, která rezervaci vytvořila.",
+      },
+      {
+        id: "8.6",
+        text: "Vyloučení odpovědnosti Provozovatele za nezletilé: Za jakoukoli újmu na zdraví či životě nezletilých osob v Prostoru nese výhradní odpovědnost osoba starší 18 let, která rezervaci vytvořila nebo která byla v Prostoru přítomna jako doprovod/dozor nezletilého. Provozovatel nenese jakoukoli odpovědnost za zranění, úrazy, zhoršení zdravotního stavu či úmrtí, které vznikly v důsledku nesprávného používání vybavení, nedodržení bezpečnostních zásad, neopatrnosti nebo přecenění vlastních sil ze strany Klienta, jeho doprovodu nebo jimi doprovázených nezletilých osob.",
       },
     ],
   },
@@ -221,11 +233,11 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "9.2",
-        text: "Maximální kapacita (Pravidlo 1+3): Jedna rezervace opravňuje ke vstupu Hlavního klienta a maximálně 3 (tří) dalších osob jako jeho doprovodu (celkem tedy max. 4 lidé na místě). Vstup jakékoli další osoby (páté a další) je přísně zakázán a je považován za závažné porušení smlouvy.",
+        text: "Maximální kapacita (Pravidlo 1+3): Jedna rezervace opravňuje ke vstupu Hlavního klienta a maximálně 3 (tří) dalších osob jako jeho doprovodu (celkem tedy max. 4 lidé na místě). Vstup jakékoli další osoby (páté a další) je přísně zakázán a je považován za závažné porušení smlouvy. Každý nezletilý návštěvník se započítává do tohoto celkového limitu osob.",
       },
       {
         id: "9.3",
-        text: "Odpovědnost Hlavního klienta za skupinu: Hlavní klient plně odpovídá za chování, bezpečnost, dodržování provozního řádu a případné škody způsobené všemi osobami, které do Gymu vstoupily v čase jeho rezervace. Škoda půjde v plném rozsahu právně za ním.",
+        text: "Odpovědnost Hlavního klienta za skupinu: Hlavní klient plně odpovídá za chování, bezpečnost, dodržování provozního řádu a případné škody způsobené všemi osobami (včetně nezletilých dětí), které do Gymu vstoupily v čase jeho rezervace. Škoda půjde v plném rozsahu právně za ním.",
       },
       {
         id: "9.4",
@@ -237,7 +249,7 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "9.6",
-        text: "Povinnost uzamčení dveří: Klient je při odchodu z Gymu povinen zkontrolovat, že se za ním vchodové dveře řádně dovřely a automaticky uzamkly. Pokud kvůli nedbalosti Klienta zůstane Gym otevřený a volně přístupný a dojde k vandalismu nebo vykrácení, jde veškerá vzniklá škoda za tímto Klientem.",
+        text: "Povinnost uzamčení dveří: Klient je při odchodu z Gymu povinen zkontrolovat, že se za ním vchodové dveře řádně dovřely a automaticky uzamkly. Pokud kvůli nedbalosti Klienta zůstane Gym otevřený a volně přístupný a dojde k vandalismu nebo vykradení, jde veškerá vzniklá škoda za tímto Klientem.",
       },
     ],
   },
@@ -247,7 +259,7 @@ export const vopSections: VopSection[] = [
     clauses: [
       {
         id: "10.1",
-        text: "Odpovědnost za škodu: Klient odpovídá za veškeré škody na budově, interiéru a fitness vybavení, které v čase své rezervace způsobí on nebo jeho doprovod (včetně vandalismu, hrubého zacházení nebo zanedbání povinností). Klient se zavazuje vzniklou škodu uhradit v plné výši (v tržní ceně opravy či nového stroje) nejpozději do 30 dnů od výzvy.",
+        text: "Odpovědnost za škodu: Klient odpovídá za veškeré škody na budově, interiéru a fitness vybavení, které v čase své rezervace způsobí on, jeho doprovod či jím doprovázené nezletilé osoby (včetně vandalismu, hrubého zacházení nebo zanedbání povinností). Klient se zavazuje vzniklou škodu uhradit v plné výši (v tržní ceně opravy či nového stroje) nejpozději do 30 dnů od výzvy.",
       },
       {
         id: "10.2",
@@ -284,7 +296,7 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "11.3",
-        text: "Klient je povinen udržovat čistotu: měnit si obuv za čistou vnitřní obuv, používat při cvičení vlastní čistý ručník jako podložku na stroje, vracet činky a kotouče na své stojany a po tréninku otřít stroje desinfekcí, je-li k dispozici.",
+        text: "Klient je povinen udržovat čistotu: měnit si obuv za čistou vnitřní obuv, používat při cvičení vlastní čistý ručník jako podložku na stroje, vracet činky a kotouče na své stojany a po tréninku otřít stroje dezinfekcí, je-li k dispozici.",
       },
     ],
   },
