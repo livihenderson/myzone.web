@@ -1,4 +1,4 @@
-// Všeobecné obchodní podmínky (VOP) — binding Czech legal text.
+// Všeobecné obchodní podmínky (VOP): binding Czech legal text.
 // Kept out of the i18n dictionary on purpose: legally binding terms are shown
 // verbatim in Czech regardless of the UI language. Rendered by
 // app/obchodni-podminky/page.tsx.
@@ -23,7 +23,7 @@ export const vopTitle = "VŠEOBECNÉ OBCHODNÍ PODMÍNKY";
 export const vopIntro =
   "pro online rezervaci a pronájem soukromého prostoru prostřednictvím webu www.myzonegym.cz („VOP“)";
 
-export const vopEffectiveDate = "2. 7. 2026";
+export const vopEffectiveDate = "10. 9. 2026";
 
 export const vopSections: VopSection[] = [
   {
@@ -66,19 +66,19 @@ export const vopSections: VopSection[] = [
     clauses: [
       {
         id: "2.1",
-        text: "„Nájemní smlouva“ – smlouva uzavřená mezi Pronajímatelem a Klientem okamžikem stisku tlačítka REZERVOVAT A ZAPLATIT, jejímž předmětem je dočasné užívání prostoru.",
+        text: "„Nájemní smlouva“: smlouva uzavřená mezi Pronajímatelem a Klientem okamžikem stisku tlačítka REZERVOVAT A ZAPLATIT, jejímž předmětem je dočasné užívání prostoru.",
       },
       {
         id: "2.2",
-        text: "„Spotřebitel“ – fyzická osoba mimo rámec podnikání (§ 419 OZ).",
+        text: "„Spotřebitel“: fyzická osoba mimo rámec podnikání (§ 419 OZ).",
       },
       {
         id: "2.3",
-        text: "„Podnikatel“ – osoba jednající v rámci své podnikatelské činnosti (§ 420 OZ). Uvede-li Klient při rezervaci IČO, má se automaticky za to, že jedná jako podnikatel.",
+        text: "„Podnikatel“: osoba jednající v rámci své podnikatelské činnosti (§ 420 OZ). Uvede-li Klient při rezervaci IČO, má se automaticky za to, že jedná jako podnikatel.",
       },
       {
         id: "2.4",
-        text: "„Hlavní klient“ – osoba, která vytvořila a uhradila rezervaci v systému a na jejíž jméno je rezervace vedena.",
+        text: "„Hlavní klient“: osoba, která vytvořila a uhradila rezervaci v systému a na jejíž jméno je rezervace vedena.",
       },
     ],
   },
@@ -215,7 +215,7 @@ export const vopSections: VopSection[] = [
       },
       {
         id: "8.5",
-        text: "Striktní zákaz pro osoby mladší 15 let: Osobám mladším 15 let je přísně zakázáno jakkoli manipulovat s jakýmkoli náčiním, zařízením či stroji, které se nacházejí v Prostoru posilovny a celé budovy. Pokud by osoba mladší 15 let tento přísný zákaz nerespektovala a způsobila by škodu na majetku v Prostoru, nebo fyzickou či zdravotní újmu sobě či dalším osobám v posilovně MyZone Gym, padá plná odpovědnost za tuto situaci na dospělou osobu, která v Prostoru působila jako dozor, případně na osobu, která rezervaci vytvořila.",
+        text: "Striktní zákaz pro osoby mladší 15 let: Osobám mladším 15 let je přísně zakázáno jakkoli manipulovat s jakýmkoliv náčiním, zařízením či stroji, které se nacházejí v Prostoru posilovny a celé budovy. Pokud by osoba mladší 15 let tento přísný zákaz nerespektovala a způsobila by škodu na majetku v Prostoru, nebo fyzickou či zdravotní újmu sobě či dalším osobám v posilovně MyZone Gym, padá plná odpovědnost za tuto situaci na dospělou osobu, která v Prostoru působila jako dozor, případně na osobu, která rezervaci vytvořila.",
       },
       {
         id: "8.6",
@@ -229,7 +229,7 @@ export const vopSections: VopSection[] = [
     clauses: [
       {
         id: "9.1",
-        text: "Nepřenosnost přístupu: Přístupový PIN kód zaslaný Klientovi je přísně tajný a nepřenosný. Klient nesmí kód sdílet s žádnou třetí osobou, která není nahlášena / schválena jako součást jeho rezervace. Pokud klient pustí dovnitř neoprávněnou osobu, nese plnou právní a finanční odpovědnost za veškeré její jednání v objektu.",
+        text: "Nepřenosnost přístupu: Přístupový PIN kód zaslaný Klientovi je přísně tajný a nepřenosný. Klient nesmí kód sdílet s žádnou třetí osobou, která není nahlášená / schválená jako součást jeho rezervace. Pokud klient pustí dovnitř neoprávněnou osobu, nese plnou právní a finanční odpovědnost za veškeré její jednání v objektu.",
       },
       {
         id: "9.2",
@@ -287,6 +287,7 @@ export const vopSections: VopSection[] = [
           "Přespávání;",
           "Užívání a distribuce nelegálních látek (včetně dopingu);",
           "Vstup se zvířaty;",
+          "Používání vlastních reproduktorů, přehrávání nahlas puštěné hudby z vlastních přenosných zařízení a vytváření nadměrného hluku, křiku, či rušení klidu;",
           "Jednání v rozporu s dobrými mravy a hlučné chování porušující noční klid (mezi 22:00 a 6:00).",
         ],
       },
