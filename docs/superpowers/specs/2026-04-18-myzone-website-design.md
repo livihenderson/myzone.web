@@ -1,4 +1,4 @@
-# MyZone — Private Gym Website Design Spec
+# MyZone - Private Gym Website Design Spec
 
 **Date:** 2026-04-18
 **Status:** Approved for planning
@@ -42,10 +42,10 @@
 Colors exposed in `app/globals.css` via Tailwind v4 `@theme`.
 
 ### Typography
-- Display / headings: **Space Grotesk** (600 and 700) — geometric, techy.
+- Display / headings: **Space Grotesk** (600 and 700) - geometric, techy.
 - Body: **Inter** (400 and 500).
 - Both loaded via `next/font/google` with CSS variables (`--font-display`, `--font-body`).
-- Generous tracking on display sizes; `text-6xl`–`text-8xl` for hero headings.
+- Generous tracking on display sizes; `text-6xl`-`text-8xl` for hero headings.
 
 ### Vibe devices (used sparingly)
 - Monospace eyebrow labels (e.g. `01 / JAK TO FUNGUJE`) in `--ice-deep`.
@@ -56,7 +56,7 @@ Colors exposed in `app/globals.css` via Tailwind v4 `@theme`.
 
 ### Motion principles
 - Every scroll-reveal, every transform: GPU-friendly transforms only.
-- Every animation honors `prefers-reduced-motion` — fallback to fade or no motion.
+- Every animation honors `prefers-reduced-motion` - fallback to fade or no motion.
 - Entry animations stagger (parent-child variants), never all-at-once.
 
 ---
@@ -88,20 +88,20 @@ Pages (Next.js app router):
 2. **Hero copy layer** (revealed by fracture). Large CZ display headline (e.g. *Tvoje zóna. Tvůj čas.*), one-line sub, two CTAs: `Rezervovat` (primary, icy-blue glow) + `Prohlédnout prostory` (ghost, scrolls to Vybavení).
 3. **Trust strip.** Thin row of icons + micro-copy: *Soukromý · Max 3 + trenér · 24/7 přístup · Kladno*.
 4. **Jak to funguje.** Split layout. Left = 4 numbered steps with animated icy connectors:
-   - `01 Rezervuj slot` — vyber si čas online
-   - `02 Obdrž kód` — unikátní kód ti přijde e-mailem
-   - `03 Odemkni dveře` — kód tě pustí do gymu
-   - `04 Cvič v klidu` — prostor jen pro tebe a tvou partu
+   - `01 Rezervuj slot` - vyber si čas online
+   - `02 Obdrž kód` - unikátní kód ti přijde e-mailem
+   - `03 Odemkni dveře` - kód tě pustí do gymu
+   - `04 Cvič v klidu` - prostor jen pro tebe a tvou partu
    Right = phone mockup with looping mock-UI (reservation → code screen → door unlock).
 5. **Vybavení / Facilities.** Section header + bento-grid of cards, each = category with copy + stock photo:
-   - *Silový trénink* — leg press, klec, multi-press, rohový multifunkční stroj (záda, veslování, zakopávání, kladky).
-   - *Činky 2–35 kg* — jednoručky ve všech váhách.
-   - *Kardio* — běžecký pás.
-   - *Volné váhy & doplňky* — osy, zakřivená osa, lavice, gumy, podložky, kotouče.
+   - *Silový trénink* - leg press, klec, multi-press, rohový multifunkční stroj (záda, veslování, zakopávání, kladky).
+   - *Činky 2-35 kg* - jednoručky ve všech váhách.
+   - *Kardio* - běžecký pás.
+   - *Volné váhy & doplňky* - osy, zakřivená osa, lavice, gumy, podložky, kotouče.
 6. **Komfort.** Full-width darker panel with pictogram row:
-   - Šatna + sprchový kout se vším (gumičky, tampóny, vložky, sprchové gely) — *staráme se o váš komfort*.
+   - Šatna + sprchový kout se vším (gumičky, tampóny, vložky, sprchové gely) - *staráme se o váš komfort*.
    - Nespresso zdarma.
-   - Aktin bar (shaky, elektrolyty, tyčinky) — platba QR kódem.
+   - Aktin bar (shaky, elektrolyty, tyčinky) - platba QR kódem.
    - Reproduktory.
    - Wi-Fi.
 7. **Kapacita.** Big stat line: *3 osoby + trenér na jednu rezervaci*.
@@ -115,28 +115,28 @@ Pages (Next.js app router):
 
 **Direction:** Option 1 (diagonal fracture along the logo's natural seam).
 
-### Phase A — Entry (0s–2.2s, autoplay)
+### Phase A - Entry (0s-2.2s, autoplay)
 - Black plate fades in at center with a slight scale-up from 0.92 → 1.0.
 - Icy-blue beam travels along the logo's SVG path using `stroke-dashoffset` animation.
 - As the beam passes a segment, that segment of the neon tube lights up and begins glowing (`filter: drop-shadow(...)` ramps in).
 - After the beam completes, a subtle ambient pulse loop runs on the finished neon.
 - Mouse-leave / idle: logo keeps gently pulsing.
 
-### Phase B — Scroll-driven fracture (scroll 0%–100% of hero viewport)
+### Phase B - Scroll-driven fracture (scroll 0%-100% of hero viewport)
 Driven by Motion's `useScroll` + `useTransform`:
 
 | Scroll % | Behavior |
 | --- | --- |
-| 0–10% | Crack line appears along the diagonal seam, intensity ramps with icy glow |
-| 10–25% | Small SVG-particle debris emits along the crack |
-| 20–100% | Upper-right half translates up+right with slight rotation; lower-left half translates down+left with opposite rotation; both slightly scale down as they clear |
-| 40–100% | Hero copy layer underneath fades up + blur-in, staggered (headline → sub → CTAs) |
+| 0-10% | Crack line appears along the diagonal seam, intensity ramps with icy glow |
+| 10-25% | Small SVG-particle debris emits along the crack |
+| 20-100% | Upper-right half translates up+right with slight rotation; lower-left half translates down+left with opposite rotation; both slightly scale down as they clear |
+| 40-100% | Hero copy layer underneath fades up + blur-in, staggered (headline → sub → CTAs) |
 
 ### Reduced motion
 If `prefers-reduced-motion: reduce`, the entire sequence collapses to: plate + logo render statically for a beat, then fade out, and the hero copy fades in. No fracture, no beam.
 
 ### Performance
-- Plate and logo are SVG (not raster) — stay crisp, cheap to animate.
+- Plate and logo are SVG (not raster) - stay crisp, cheap to animate.
 - Transforms only (no layout-shifting properties).
 - Motion's `useMotionValue` + `useTransform` to keep re-renders minimal.
 - `will-change: transform` applied judiciously on the two halves during the scroll range.
@@ -148,8 +148,8 @@ If `prefers-reduced-motion: reduce`, the entire sequence collapses to: plate + l
 ### `/o-nas`
 Short hero (title `O nás` with icy underline), then one long centered essay block in the owner's voice:
 - Goal was to build a modern gym focused on privacy.
-- Commercial gyms felt uncomfortable — people don't clean up, no personal space.
-- Wanted a safe space where everyone has their own zone — MyZone.
+- Commercial gyms felt uncomfortable - people don't clean up, no personal space.
+- Wanted a safe space where everyone has their own zone - MyZone.
 - Pull-quote mid-page: *"Tvoje zóna. Tvoje pravidla."*
 - Closing CTA to `/rezervovat`.
 - No team bios (per owner).
@@ -167,7 +167,7 @@ Short hero (title `O nás` with icy underline), then one long centered essay blo
 
 ---
 
-## 7. Forms — Pre-launch Discount
+## 7. Forms - Pre-launch Discount
 
 **Fields (all required except where noted):**
 - `Jméno` (text)
@@ -200,7 +200,7 @@ Short hero (title `O nás` with icy underline), then one long centered essay blo
 ## 9. Tech Stack & File Layout
 
 ### Stack
-- Next.js **16.2.4** (app router) — read `node_modules/next/dist/docs/` before route code (per `AGENTS.md`).
+- Next.js **16.2.4** (app router) - read `node_modules/next/dist/docs/` before route code (per `AGENTS.md`).
 - React **19.2.4**.
 - Tailwind **v4** (via `@theme` in `globals.css`).
 - `motion` (ex-Framer Motion) for all animations.
@@ -279,7 +279,7 @@ public/
 - `alt` attributes localized.
 - Lighthouse target: ≥ 90 on Performance, Accessibility, Best Practices.
 - Images use `next/image` where possible (except the animated plate which is inline SVG).
-- No client-side bundle bloat — animation variants live in their own modules, imported per section.
+- No client-side bundle bloat - animation variants live in their own modules, imported per section.
 
 ---
 
@@ -305,6 +305,6 @@ public/
 
 ## 13. Open Questions (resolvable during build, not blockers)
 
-- Exact otevírací doba — placeholder for now; owner to confirm later.
-- Final phone number and e-mail for kontakty — placeholder until owner provides.
-- Exact neon-beam duration tuning — will tune on real hardware.
+- Exact otevírací doba - placeholder for now; owner to confirm later.
+- Final phone number and e-mail for kontakty - placeholder until owner provides.
+- Exact neon-beam duration tuning - will tune on real hardware.

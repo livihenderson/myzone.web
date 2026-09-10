@@ -24,7 +24,7 @@ export function RevealOnScroll({
       initial="hidden"
       whileInView="visible"
       // Trigger ~300px before the element enters the viewport so content
-      // reveals early instead of waiting until it is well in view — avoids
+      // reveals early instead of waiting until it is well in view - avoids
       // near-viewport blocks lingering at opacity:0.
       viewport={{ once: true, amount, margin: "0px 0px 300px 0px" }}
       variants={staggerChildren ? stagger : fadeUp}

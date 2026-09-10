@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { fadeUp } from "@/lib/motion/variants";
 
-// Google Maps `q=` embed geocodes the address string directly — no need
+// Google Maps `q=` embed geocodes the address string directly - no need
 // to hand-maintain lat/lng coords when the address changes.
 const MAP_SRC =
   "https://maps.google.com/maps?q=Leo%C5%A1e%20Jan%C3%A1%C4%8Dka%20237%2C%20272%2001%20Kladno&z=16&output=embed";

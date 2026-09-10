@@ -79,7 +79,7 @@ export function Lightbox({ photos, index, onClose, onPrev, onNext }: Props) {
               alt={`Fotka z MyZone Gym Kladno ${index + 1}`}
               fill
               // Load immediately on open (this is never the LCP, so no
-              // preload/priority — that would waste the preload budget).
+              // preload/priority - that would waste the preload budget).
               loading="eager"
               placeholder="blur"
               className="object-cover"

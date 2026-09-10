@@ -25,15 +25,15 @@ const SITE_DESCRIPTION =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MyZone — Soukromé fitness, Kladno",
-    template: "%s — MyZone",
+    default: "MyZone - Soukromé fitness, Kladno",
+    template: "%s - MyZone",
   },
   description: SITE_DESCRIPTION,
   applicationName: "MyZone Gym",
   alternates: {
     canonical: "/",
     // Content is served cs/en at the same URL (en is a client-side toggle),
-    // and cs is the indexed locale — so both cs and x-default resolve here.
+    // and cs is the indexed locale - so both cs and x-default resolve here.
     languages: {
       cs: "/",
       "x-default": "/",
@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     siteName: "MyZone Gym",
     locale: "cs_CZ",
     url: SITE_URL,
-    title: "MyZone — Soukromé fitness, Kladno",
+    title: "MyZone - Soukromé fitness, Kladno",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "MyZone — Soukromé fitness, Kladno",
+    title: "MyZone - Soukromé fitness, Kladno",
     description: SITE_DESCRIPTION,
   },
 };
@@ -81,7 +81,7 @@ export default function RootLayout({
           Přeskočit na obsah
         </a>
         <Providers>{children}</Providers>
-        {/* Reservine booking widget. Pinned (no @latest — supply-chain +
+        {/* Reservine booking widget. Pinned (no @latest - supply-chain +
             cache-busting risk) and loaded afterInteractive: the
             <reservine-button> wrapper only needs to upgrade before a user
             clicks "Rezervovat", and it degrades to a normal <Button> link

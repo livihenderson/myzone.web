@@ -16,7 +16,7 @@ export type EmailParts = {
 };
 
 // Dark all the way through. Pure white for body text because Gmail
-// mobile darkens off-whites under its "smart contrast" pass — pure
+// mobile darkens off-whites under its "smart contrast" pass - pure
 // #FFFFFF is the one value the heuristic trusts. <font color="…">
 // wrapping is the second belt-and-suspenders: Gmail's color-darken
 // algorithm reads inline `style="color:…"` but skips the legacy
@@ -130,7 +130,7 @@ ${escapeHtml(opts.preheader)}
         </tr>
       </table>
       <div style="max-width:560px;margin:18px auto 0;font-family:${FONT_BODY};font-size:10px;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;line-height:1.6;text-align:center;">
-        ${ft(TEXT_DEEP_DIM, "Leoše Janáčka 237 · Kladno · Po–Ne 6:00–22:00")}
+        ${ft(TEXT_DEEP_DIM, "Leoše Janáčka 237 · Kladno · Po-Ne 6:00-22:00")}
       </div>
     </td>
   </tr>
@@ -238,7 +238,7 @@ export function submitterConfirmation(
   });
 
   const lines: string[] = [
-    `MYZONE — ${labels.subtitle}`,
+    `MYZONE - ${labels.subtitle}`,
     "",
     greeting,
     "",
@@ -283,7 +283,7 @@ export function ownerNotification(
       ${ft(TEXT, "Nový zájemce o předotevírací slevu.")}
     </p>
     <p style="margin:0 0 30px 0;font-family:${FONT_BODY};font-size:15px;line-height:1.75;">
-      ${ft(TEXT, "Stačí odpovědět na tento e-mail&nbsp;— Reply-To míří přímo na zájemce.")}
+      ${ft(TEXT, "Stačí odpovědět na tento e-mail&nbsp;- Reply-To míří přímo na zájemce.")}
     </p>
     ${quoteBlock("Zájemce", leadFieldsHtml)}
   `;
@@ -300,9 +300,9 @@ export function ownerNotification(
   });
 
   const lines: string[] = [
-    `MYZONE — Nový lead`,
+    `MYZONE - Nový lead`,
     ``,
-    `Stačí odpovědět na tento e-mail — Reply-To míří přímo na zájemce.`,
+    `Stačí odpovědět na tento e-mail - Reply-To míří přímo na zájemce.`,
     ``,
     `ZÁJEMCE`,
   ];

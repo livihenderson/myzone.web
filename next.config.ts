@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     // Only 75 is used today; keep it explicit so the optimizer caches a
     // single quality variant per size.
     qualities: [75],
-    // 30 days — optimized variants survive so the VPS stops re-encoding.
+    // 30 days - optimized variants survive so the VPS stops re-encoding.
     minimumCacheTTL: 2592000,
     // The layouts request at most ~92vw (gallery) / 50vw (facility cards);
     // the 3840 entry is never needed, so trim the top end.

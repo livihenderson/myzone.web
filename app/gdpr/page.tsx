@@ -6,8 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 // Legal text is Czech-only by design (statutory privacy notice); the Navbar
 // and Footer chrome stays bilingual via the dictionary.
 export const metadata: Metadata = {
-  // absolute → bypass the root "%s — MyZone" template (brand already in title).
-  title: { absolute: "Zásady zpracování osobních údajů (GDPR) — MyZone" },
+  // absolute → bypass the root "%s - MyZone" template (brand already in title).
+  title: { absolute: "Zásady zpracování osobních údajů (GDPR) - MyZone" },
   description:
     "Zásady zpracování osobních údajů (GDPR) provozovatele MyZone Gym, Kladno.",
   alternates: { canonical: "/gdpr" },
@@ -60,7 +60,7 @@ export default function GdprPage() {
                 Zásady zpracování osobních údajů (GDPR)
               </h1>
               <p className="text-[var(--color-text-dim)]">
-                MyZone Gym – soukromý samoobslužný prostor
+                MyZone Gym - soukromý samoobslužný prostor
               </p>
             </header>
 
@@ -121,9 +121,9 @@ export default function GdprPage() {
               <Section title="3. Účely a právní základy">
                 <Bullets
                   items={[
-                    "Plnění smlouvy (vytvoření a správa rezervace, poskytnutí přístupového PIN kódu do MyZone Gym, komunikace s klientem) – čl. 6 odst. 1 písm. b) GDPR;",
-                    "Plnění právní povinnosti (účetnictví a daně) – čl. 6 odst. 1 písm. c) GDPR;",
-                    "Oprávněný zájem (ochrana majetku a osob – kamerový systém včetně zvuku z důvodu prevence před krádežemi a vandalismem, IT bezpečnost, vymáhání případných škod a identifikace osob na základě provozního řádu) – čl. 6 odst. 1 písm. f) GDPR;",
+                    "Plnění smlouvy (vytvoření a správa rezervace, poskytnutí přístupového PIN kódu do MyZone Gym, komunikace s klientem) - čl. 6 odst. 1 písm. b) GDPR;",
+                    "Plnění právní povinnosti (účetnictví a daně) - čl. 6 odst. 1 písm. c) GDPR;",
+                    "Oprávněný zájem (ochrana majetku a osob - kamerový systém včetně zvuku z důvodu prevence před krádežemi a vandalismem, IT bezpečnost, vymáhání případných škod a identifikace osob na základě provozního řádu) - čl. 6 odst. 1 písm. f) GDPR;",
                     "Souhlas (je-li vyžadován; např. marketing, volitelné cookies). Bez souhlasu marketingová sdělení nezasíláme.",
                   ]}
                 />

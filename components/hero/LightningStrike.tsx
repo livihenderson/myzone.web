@@ -8,9 +8,9 @@ import { motion } from "motion/react";
  * the NeonLogo beam-trace begins (its `animationDelay` prop is timed to match).
  *
  * Timeline (seconds from mount):
- *   0.00 – 0.55 : bolts draw in (pathLength 0 → 1)
- *   0.55 – 0.70 : flash peaks
- *   0.70 – 1.10 : flash fades, bolts fade
+ *   0.00 - 0.55 : bolts draw in (pathLength 0 → 1)
+ *   0.55 - 0.70 : flash peaks
+ *   0.70 - 1.10 : flash fades, bolts fade
  *   1.10+      : quiet; NeonLogo trace kicks in (delay ≈ 1.1s)
  */
 export function LightningStrike() {
@@ -21,7 +21,7 @@ export function LightningStrike() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* Primary bolt — dramatic zigzag down to the plate center */}
+      {/* Primary bolt - dramatic zigzag down to the plate center */}
       <motion.svg
         className="absolute left-1/2 top-0 h-[55vh] w-[min(60vw,500px)] -translate-x-1/2"
         viewBox="0 0 100 200"

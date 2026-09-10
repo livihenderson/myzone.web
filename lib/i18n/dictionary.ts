@@ -20,7 +20,7 @@ export const dictionary = {
     trust: {
       private: "100% soukromí",
       capacity: "Až 4 osoby",
-      access: "Denně 6:00–22:00",
+      access: "Denně 6:00-22:00",
       location: "Kladno",
     },
     how: {
@@ -68,7 +68,7 @@ export const dictionary = {
         },
         {
           title: "Volné váhy",
-          desc: "Kotouče 220 kg, jednoruční činky 0,5–35 kg, osa rovná i zakřivená, nastavitelná lavice, odporové gumy.",
+          desc: "Kotouče 220 kg, jednoruční činky 0,5-35 kg, osa rovná i zakřivená, nastavitelná lavice, odporové gumy.",
         },
       ],
     },
@@ -79,7 +79,7 @@ export const dictionary = {
       items: [
         {
           title: "Šatna & sprcha",
-          desc: "Sprchový kout se vším vybavením — sprchové gely, gumičky do vlasů a veškeré hygienické potřeby.",
+          desc: "Sprchový kout se vším vybavením - sprchové gely, gumičky do vlasů a veškeré hygienické potřeby.",
         },
         {
           title: "Káva zdarma",
@@ -106,8 +106,8 @@ export const dictionary = {
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 722 662 467",
       email: "info@myzonegym.cz",
-      hours: "Po–Ne · 6:00–22:00",
-      parkingTipLabel: "TIP — KDE ZAPARKOVAT",
+      hours: "Po-Ne · 6:00-22:00",
+      parkingTipLabel: "TIP - KDE ZAPARKOVAT",
       parkingTipBody:
         "OC Central Kladno máš 3 minuty pěšky. První 3 hodiny parkuješ zdarma.",
       terms: "Obchodní podmínky",
@@ -140,7 +140,7 @@ export const dictionary = {
         preheader: "Jsi na seznamu. Slevový kód ti pošleme před otevřením.",
         greeting: "Ahoj {name},",
         intro:
-          "díky, že ses přihlásil/a o předotevírací slevu na MyZone. Tvoje místo na seznamu je rezervované — slevový kód ti pošleme na tenhle e-mail těsně před oficiálním otevřením.",
+          "díky, že ses přihlásil/a o předotevírací slevu na MyZone. Tvoje místo na seznamu je rezervované - slevový kód ti pošleme na tenhle e-mail těsně před oficiálním otevřením.",
         summaryTitle: "Co jsi nám napsal/a",
         signoff: "Měj se,\nMyZone tým",
         footerNote:
@@ -161,11 +161,11 @@ export const dictionary = {
       items: [
         {
           q: "Musím být členem?",
-          a: "Ne. U nás si rezervuješ jednotlivý slot bez dlouhodobého závazku — platíš jen za to, co si odcvičíš.",
+          a: "Ne. U nás si rezervuješ jednotlivý slot bez dlouhodobého závazku - platíš jen za to, co si odcvičíš.",
         },
         {
           q: "Můžu si vzít kamaráda?",
-          a: "Jasně. Jedna rezervace je až pro 4 osoby, platíte za rezervovaný časový slot a ne za počet osob — takže si klidně vezmi partu a celý prostor patří jen vám.",
+          a: "Jasně. Jedna rezervace je až pro 4 osoby, platíte za rezervovaný časový slot a ne za počet osob - takže si klidně vezmi partu a celý prostor patří jen vám.",
         },
         {
           q: "Jak dlouho trvá jeden slot?",
@@ -177,7 +177,7 @@ export const dictionary = {
         },
         {
           q: "Můžu si přivést vlastního trenéra?",
-          a: "Jasně. Trenér se počítá do limitu 4 osob — stačí, když se vejdete do kapacity.",
+          a: "Jasně. Trenér se počítá do limitu 4 osob - stačí, když se vejdete do kapacity.",
         },
         {
           q: "Co když budu chtít rezervaci zrušit?",
@@ -194,7 +194,7 @@ export const dictionary = {
       title: "Tvoje zóna. Tvoje pravidla.",
       body: [
         "MyZone jsme postavili, protože nám na Kladně chybělo místo, kde se dá cvičit v klidu, bez front a se stoprocentním soustředěním jen na sebe. Už nás nebavilo čekat, až se uvolní stroj, nebo trávit půlku tréninku hledáním činek a kotoučů po celém fitku.",
-        "Rozhodli jsme se proto vytvořit prostor, kde tohle odpadá. Zapomeňte na přeplněné posilovny a nepříjemné pohledy. V MyZone je to o vás — o vašem tréninku, vaší hudbě a vašem progresu.",
+        "Rozhodli jsme se proto vytvořit prostor, kde tohle odpadá. Zapomeňte na přeplněné posilovny a nepříjemné pohledy. V MyZone je to o vás - o vašem tréninku, vaší hudbě a vašem progresu.",
         "Při vybavování jsme sázeli na kvalitu a funkčnost, kterou ocení jak zkušení sportovci, tak začátečníci, kteří hledají bezpečné a diskrétní místo pro své první kroky. Naším cílem bylo vytvořit prostředí, kde vás nic nerozptyluje a kde máte celé fitko jen pro sebe.",
         "MyZone je vaše zóna, kde platí vaše pravidla a kde váš čas patří jen vám. Přijďte si vyzkoušet, jaké to je trénovat v maximálním soukromí a posouvat své hranice bez zbytečných kompromisů.",
       ],
@@ -233,7 +233,7 @@ export const dictionary = {
     trust: {
       private: "100% privacy",
       capacity: "Up to 4 people",
-      access: "Daily 6:00–22:00",
+      access: "Daily 6:00-22:00",
       location: "Kladno",
     },
     how: {
@@ -253,7 +253,7 @@ export const dictionary = {
         {
           n: "03",
           title: "Enter the code at the door",
-          desc: "The code gets you into the gym — no reception, no holdups.",
+          desc: "The code gets you into the gym - no reception, no holdups.",
         },
         {
           n: "04",
@@ -281,7 +281,7 @@ export const dictionary = {
         },
         {
           title: "Free weights",
-          desc: "220 kg of plates, dumbbells 0.5–35 kg, straight & EZ curl bar, adjustable bench, resistance bands.",
+          desc: "220 kg of plates, dumbbells 0.5-35 kg, straight & EZ curl bar, adjustable bench, resistance bands.",
         },
       ],
     },
@@ -292,7 +292,7 @@ export const dictionary = {
       items: [
         {
           title: "Changing room & shower",
-          desc: "Shower with everything you need — shower gels, hair ties and all essential hygiene supplies.",
+          desc: "Shower with everything you need - shower gels, hair ties and all essential hygiene supplies.",
         },
         {
           title: "Free coffee",
@@ -319,7 +319,7 @@ export const dictionary = {
       address: "Leoše Janáčka 237, 272 01 Kladno 1",
       phone: "+420 722 662 467",
       email: "info@myzonegym.cz",
-      hours: "Mon–Sun · 6:00–22:00",
+      hours: "Mon-Sun · 6:00-22:00",
       parkingTipLabel: "PARKING TIP",
       parkingTipBody:
         "Central Kladno mall is a 3-minute walk away. First 3 hours of parking are free.",
@@ -352,7 +352,7 @@ export const dictionary = {
         preheader: "You're on the list. We'll email your discount before we open.",
         greeting: "Hi {name},",
         intro:
-          "thanks for signing up for the pre-launch discount at MyZone. Your spot on the list is reserved — we'll email your personal discount code to this address right before we officially open.",
+          "thanks for signing up for the pre-launch discount at MyZone. Your spot on the list is reserved - we'll email your personal discount code to this address right before we officially open.",
         summaryTitle: "What you sent us",
         signoff: "See you soon,\nThe MyZone team",
         footerNote:
@@ -373,11 +373,11 @@ export const dictionary = {
       items: [
         {
           q: "Do I need a membership?",
-          a: "No. You book individual slots with no long-term commitment — pay only for what you actually train.",
+          a: "No. You book individual slots with no long-term commitment - pay only for what you actually train.",
         },
         {
           q: "Can I bring a friend?",
-          a: "Of course. One booking covers up to 4 people — you pay for the time slot, not per person, so bring your crew and the whole space is yours.",
+          a: "Of course. One booking covers up to 4 people - you pay for the time slot, not per person, so bring your crew and the whole space is yours.",
         },
         {
           q: "How long is one session?",
@@ -385,11 +385,11 @@ export const dictionary = {
         },
         {
           q: "How do I get in?",
-          a: "After booking, you'll get a unique code by SMS right before your slot — use it to unlock the door. No reception, no waiting.",
+          a: "After booking, you'll get a unique code by SMS right before your slot - use it to unlock the door. No reception, no waiting.",
         },
         {
           q: "Can I bring my own trainer?",
-          a: "Absolutely. Your trainer counts toward the 4-person cap — just fit them into your booking.",
+          a: "Absolutely. Your trainer counts toward the 4-person cap - just fit them into your booking.",
         },
         {
           q: "What about cancellations?",
@@ -406,7 +406,7 @@ export const dictionary = {
       title: "Your zone. Your rules.",
       body: [
         "We built MyZone because Kladno was missing a place where you can train in peace, without queues, with full focus on yourself. We were tired of waiting for a machine to free up or spending half a session hunting for dumbbells and plates across the gym.",
-        "So we decided to create a space where none of that matters. Forget packed gyms and eyes on your back. At MyZone it's about you — your workout, your music, your progress.",
+        "So we decided to create a space where none of that matters. Forget packed gyms and eyes on your back. At MyZone it's about you - your workout, your music, your progress.",
         "We equipped the place for quality and function, ready for seasoned athletes and for beginners looking for a safe, discreet spot to take their first steps. The goal was simple: nothing to distract you, the whole gym to yourself.",
         "MyZone is your zone, your rules, your time. Come try what it feels like to train in full privacy and push your limits without compromise.",
       ],

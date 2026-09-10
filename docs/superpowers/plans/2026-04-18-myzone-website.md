@@ -200,7 +200,7 @@ git commit -m "feat: set up dark theme tokens and base styles"
 
 ---
 
-## Task 3: Root layout — fonts, metadata, providers slot
+## Task 3: Root layout - fonts, metadata, providers slot
 
 **Files:**
 - Rewrite: `app/layout.tsx`
@@ -228,7 +228,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MyZone — Soukromé fitness, Kladno",
+  title: "MyZone - Soukromé fitness, Kladno",
   description:
     "Soukromé fitness v Kladně. Tvoje zóna. Tvůj čas. Rezervuj, obdrž kód, odemkni dveře a cvič v klidu.",
 };
@@ -351,7 +351,7 @@ export const dictionary = {
           desc: "Leg press, klec, multi-press, rohový multifunkční stroj (záda, veslování, zakopávání, kladky).",
         },
         {
-          title: "Činky 2–35 kg",
+          title: "Činky 2-35 kg",
           desc: "Kompletní sada jednoručních činek ve všech váhách.",
         },
         {
@@ -371,7 +371,7 @@ export const dictionary = {
       items: [
         {
           title: "Šatna & sprcha",
-          desc: "Sprchový kout se vším vybavením — sprchové gely, gumičky do vlasů, tampony, vložky.",
+          desc: "Sprchový kout se vším vybavením - sprchové gely, gumičky do vlasů, tampony, vložky.",
         },
         {
           title: "Nespresso zdarma",
@@ -398,7 +398,7 @@ export const dictionary = {
       address: "Petra Bezruče 3388, Kladno",
       phone: "+420 000 000 000",
       email: "ahoj@myzone.cz",
-      hours: "Po–Ne · 24/7 po rezervaci",
+      hours: "Po-Ne · 24/7 po rezervaci",
     },
     sleva: {
       eyebrow: "06 / PŘEDOTEVÍRACÍ BONUS",
@@ -430,7 +430,7 @@ export const dictionary = {
       body: [
         "Když jsme začínali cvičit, komerční gymy nám přišly nepříjemné. Stovky lidí, fronty, nikdo po sobě neuklidí, pohledy. Nedalo se soustředit na trénink.",
         "Chtěli jsme moderní prostor, který dá klid a soukromí. Místo, kam přijdeš ty a tvá parta, zavřete za sebou a je to jen vaše.",
-        "MyZone je přesně to — tvoje zóna, tvoje pravidla, tvůj čas.",
+        "MyZone je přesně to - tvoje zóna, tvoje pravidla, tvůj čas.",
       ],
       pullquote: "Tvoje zóna. Tvoje pravidla.",
       cta: "Rezervovat slot",
@@ -504,7 +504,7 @@ export const dictionary = {
           desc: "Leg press, power rack, multi-press, multi-station (back, rows, leg curls, cable stack).",
         },
         {
-          title: "Dumbbells 2–35 kg",
+          title: "Dumbbells 2-35 kg",
           desc: "Full dumbbell set across the weight range.",
         },
         {
@@ -524,7 +524,7 @@ export const dictionary = {
       items: [
         {
           title: "Changing room & shower",
-          desc: "Fully stocked — shower gels, hair ties, tampons, pads.",
+          desc: "Fully stocked - shower gels, hair ties, tampons, pads.",
         },
         {
           title: "Free Nespresso",
@@ -551,7 +551,7 @@ export const dictionary = {
       address: "Petra Bezruče 3388, Kladno",
       phone: "+420 000 000 000",
       email: "hello@myzone.cz",
-      hours: "Mon–Sun · 24/7 after booking",
+      hours: "Mon-Sun · 24/7 after booking",
     },
     sleva: {
       eyebrow: "06 / PRE-LAUNCH BONUS",
@@ -583,7 +583,7 @@ export const dictionary = {
       body: [
         "When we started training, commercial gyms felt uncomfortable. Crowds, queues, nobody cleans up, eyes everywhere. You couldn't focus on a set.",
         "We wanted a modern space that gave us calm and privacy. A place you and your crew walk into, lock the door, and it's yours.",
-        "MyZone is exactly that — your zone, your rules, your time.",
+        "MyZone is exactly that - your zone, your rules, your time.",
       ],
       pullquote: "Your zone. Your rules.",
       cta: "Book a slot",
@@ -1311,7 +1311,7 @@ type Props = {
   size?: number;
   animate?: boolean;
   className?: string;
-  /** "whole" | "upper" | "lower" — render only one half for the fracture */
+  /** "whole" | "upper" | "lower" - render only one half for the fracture */
   half?: "whole" | "upper" | "lower";
 };
 
@@ -1322,8 +1322,8 @@ type Props = {
  *
  * Coordinate box: 200 x 240 (w x h). Seam: (0, 240) → (200, 0).
  *
- * Upper half (visible above the seam): right triangle — points (200,240) (200,0) (0,0)
- * Lower half (visible below the seam): left triangle — points (0,0) (0,240) (200,240)
+ * Upper half (visible above the seam): right triangle - points (200,240) (200,0) (0,0)
+ * Lower half (visible below the seam): left triangle - points (0,0) (0,240) (200,240)
  *
  * Logo strokes (inside the box, forming the M):
  *   left outer:  (10,240) → (10,10)  → (100,120)
@@ -1431,8 +1431,8 @@ import { NeonLogo } from "./NeonLogo";
  *  - wrap-around text "BARBELL STANDARD" + "45 LBS" decoration
  *  - MyZone neon logo centered
  *
- * The plate is rendered twice — once as an "upper" half (clipped along the
- * diagonal seam) and once as a "lower" half — so we can translate/rotate
+ * The plate is rendered twice - once as an "upper" half (clipped along the
+ * diagonal seam) and once as a "lower" half - so we can translate/rotate
  * each independently during the scroll-driven fracture.
  */
 
@@ -1541,7 +1541,7 @@ export function FracturePlate() {
     [0, 1, 1, 0],
   );
 
-  // Logo inside the plate — also splits with the two halves
+  // Logo inside the plate - also splits with the two halves
   return (
     <div
       ref={ref}
@@ -1778,7 +1778,7 @@ git commit -m "feat(sections): trust strip"
 
 ---
 
-## Task 14: PhoneMock — looping 3-screen mockup
+## Task 14: PhoneMock - looping 3-screen mockup
 
 **Files:**
 - New: `components/sections/PhoneMock.tsx`
@@ -2047,7 +2047,7 @@ Unsplash license. Replace with real MyZone photos before launch.
 
 - [ ] **Step 3: Verify**
 
-Open `http://localhost:3000/photos/01.jpg` — image loads in a new tab.
+Open `http://localhost:3000/photos/01.jpg` - image loads in a new tab.
 
 - [ ] **Step 4: Configure `next.config.ts` for remote fallback (only if curl fails and we have to fall back to placehold.co)**
 
@@ -2438,7 +2438,7 @@ export function SlevaForm() {
                     name="source"
                     label={t.sleva.source}
                     options={t.sleva.sourceOptions}
-                    placeholder="—"
+                    placeholder="-"
                     required
                     error={errors.source}
                   />
@@ -2636,7 +2636,7 @@ git commit -m "feat(page): O nás"
 
 ---
 
-## Task 21: Fotogalerie — PhotoGrid + Lightbox
+## Task 21: Fotogalerie - PhotoGrid + Lightbox
 
 **Files:**
 - New: `components/gallery/PhotoGrid.tsx`
@@ -2944,7 +2944,7 @@ git commit -m "feat(page): rezervovat placeholder"
 
 ---
 
-## Task 23: Polish pass — cross-page verification & fixes
+## Task 23: Polish pass - cross-page verification & fixes
 
 - [ ] **Step 1: Walk every page and interaction**
 
@@ -3001,14 +3001,14 @@ git commit -m "polish: tune animations, fix layout edge cases"
 - **Spec coverage:**
   - Brand/visual system (Section 2 of spec) → Tasks 2, 3, 6.
   - IA + Navbar/Footer (Section 3) → Tasks 7, 8, 9.
-  - Landing composition (Section 4) → Tasks 10–19.
+  - Landing composition (Section 4) → Tasks 10-19.
   - Hero animation (Section 5) → Tasks 10, 11, 12.
   - O nás (Section 6) → Task 20.
   - Fotogalerie (Section 6) → Task 21.
   - Rezervovat (Section 6) → Task 22.
   - Form behavior (Section 7) → Task 18.
   - i18n (Section 8) → Task 4.
-  - Tech stack / file layout (Section 9) → Tasks 1–22 align.
+  - Tech stack / file layout (Section 9) → Tasks 1-22 align.
   - Assets (Section 10) → Task 16 + pre-saved brand assets.
   - A11y / performance (Section 11) → skip-link in Task 3, `prefers-reduced-motion` in globals (Task 2), focus rings in Task 6, verification in Task 23.
 
@@ -3020,4 +3020,4 @@ git commit -m "polish: tune animations, fix layout edge cases"
 
 ## Execution
 
-This plan will be executed inline via the `executing-plans` skill — each task's steps in order, commits after each task, verifying in the browser as we go.
+This plan will be executed inline via the `executing-plans` skill - each task's steps in order, commits after each task, verifying in the browser as we go.

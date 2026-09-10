@@ -11,7 +11,7 @@ type ShardConfig = {
   size: number;
 };
 
-/** 14 fixed shards — hand-picked for good spread along the diagonal seam. */
+/** 14 fixed shards - hand-picked for good spread along the diagonal seam. */
 const SHARDS: readonly ShardConfig[] = [
   { startX: 42, startY: 58, velX: -480, velY: -280, rotate: -210, size: 4 },
   { startX: 46, startY: 52, velX: -380, velY: 260, rotate: 180, size: 3 },

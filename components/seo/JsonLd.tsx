@@ -14,7 +14,7 @@ const localBusiness = {
   "@id": `${SITE_URL}/#business`,
   name: "MyZone Gym",
   description:
-    "Soukromé fitness v Kladně. Rezervuj slot, obdrž kód SMSkou, odemkni dveře a cvič v klidu — celý prostor jen pro tebe a tvou partu.",
+    "Soukromé fitness v Kladně. Rezervuj slot, obdrž kód SMSkou, odemkni dveře a cvič v klidu - celý prostor jen pro tebe a tvou partu.",
   url: SITE_URL,
   telephone: "+420 722 662 467",
   email: "info@myzonegym.cz",

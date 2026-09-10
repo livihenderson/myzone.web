@@ -2,7 +2,7 @@
 // Converted from HEIC originals to web-sized WebP (longest edge 1600px, q80).
 //
 // Imported statically (not as string paths) so Next.js derives intrinsic
-// width/height (kills CLS guesswork) and auto-generates a blurDataURL —
+// width/height (kills CLS guesswork) and auto-generates a blurDataURL -
 // enabling placeholder="blur" with no manual base64.
 import type { StaticImageData } from "next/image";
 import img3704 from "@/public/photos/img_3704-v2.webp";
@@ -46,10 +46,10 @@ export const gymPhotos: readonly StaticImageData[] = [
 ];
 
 // Facility cards in components/sections/Vybaveni.tsx, in order:
-//   0 Silový trénink  — squat rack / pull-up bar
-//   1 Kladky & stroje — cable station
-//   2 Kardio & mobilita — treadmill
-//   3 Volné váhy      — dumbbell rack & bench
+//   0 Silový trénink  - squat rack / pull-up bar
+//   1 Kladky & stroje - cable station
+//   2 Kardio & mobilita - treadmill
+//   3 Volné váhy      - dumbbell rack & bench
 export const facilityPhotos: readonly StaticImageData[] = [
   img3751,
   img3746,

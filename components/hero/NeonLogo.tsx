@@ -7,17 +7,17 @@ import { motion, useTransform, type MotionValue } from "motion/react";
  *
  * Geometry is lifted directly from the designer's source SVG at
  * `public/MY ZONE_modre_logo-2.svg`. The mark is built from 10
- * rounded-end rectangles (each 5.04 units wide, rx=2.52) — the designer
+ * rounded-end rectangles (each 5.04 units wide, rx=2.52) - the designer
  * used filled bars with rounded caps instead of strokes. Keeping the
  * original coordinates means the logo matches the brand file exactly and
  * stays razor-sharp at any scale.
  *
  * Animation phases:
  *   < 0.010           : invisible (clean plate on screen)
- *   0.010 – 0.022     : flash in — bright neon pop at plate-center size
- *   0.022 – 0.080     : hold bright while the halves fly outward
- *   0.080 – 0.100     : scale up to full viewport size (stays bright)
- *   0.100 – 0.120     : fade begins immediately (1 → 0.4); slogan reveals
+ *   0.010 - 0.022     : flash in - bright neon pop at plate-center size
+ *   0.022 - 0.080     : hold bright while the halves fly outward
+ *   0.080 - 0.100     : scale up to full viewport size (stays bright)
+ *   0.100 - 0.120     : fade begins immediately (1 → 0.4); slogan reveals
  *                       in the same window so the composition locks in
  *                       within ~30vh of scroll
  *   0.120 +           : holds as a dimmed-but-present backdrop for text
@@ -54,7 +54,7 @@ export function NeonLogo({ progress }: { progress: MotionValue<number> }) {
           aspectRatio: "188 / 220",
           scale,
           opacity,
-          // Four drop-shadow layers instead of six — at full viewport
+          // Four drop-shadow layers instead of six - at full viewport
           // scale the outer blur is recomputed every animation frame, and
           // trimming the stack reduces paint cost without losing the
           // tight-core → soft-halo neon read.
@@ -63,7 +63,7 @@ export function NeonLogo({ progress }: { progress: MotionValue<number> }) {
           willChange: "transform, opacity",
         }}
       >
-        {/* The 10 rounded bars that make up the M — copied verbatim from
+        {/* The 10 rounded bars that make up the M - copied verbatim from
             public/MY ZONE_modre_logo-2.svg, original coordinates preserved. */}
         <rect width="5.04" height="189.98" x="91.72" y="29.18" rx="2.52" ry="2.52" />
         <rect

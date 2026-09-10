@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { vopIntro, vopSections, vopTitle } from "@/lib/legal/vop";
 
 export const metadata: Metadata = {
-  // absolute → bypass the root "%s — MyZone" template (brand already in title).
-  title: { absolute: "Obchodní podmínky — MyZone" },
+  // absolute → bypass the root "%s - MyZone" template (brand already in title).
+  title: { absolute: "Obchodní podmínky - MyZone" },
   description:
     "Všeobecné obchodní podmínky pro online rezervaci a pronájem soukromého prostoru MyZone Gym.",
   alternates: { canonical: "/obchodni-podminky" },

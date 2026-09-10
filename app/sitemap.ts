@@ -6,7 +6,7 @@ const SITE_URL = "https://myzonegym.cz";
 const LAST_MODIFIED = "2026-06-20";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // /rezervovat is intentionally omitted — it's a thin "booking coming soon"
+  // /rezervovat is intentionally omitted - it's a thin "booking coming soon"
   // status page and is set to noindex (see app/rezervovat/layout.tsx).
   return [
     {

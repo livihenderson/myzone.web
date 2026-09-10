@@ -4,16 +4,16 @@ import { motion, useTransform, type MotionValue } from "motion/react";
 
 /**
  * Scroll-driven lightning strike. Instead of playing on page mount, this
- * fires as the user begins scrolling — bolts draw down from the top,
- * strike the plate, flash — all within the first ~3% of scroll progress.
+ * fires as the user begins scrolling - bolts draw down from the top,
+ * strike the plate, flash - all within the first ~3% of scroll progress.
  * Immediately after, the plate fractures (see FracturePlate's timings).
  *
  * Timeline (in scroll progress, not seconds):
- *   0.000 – 0.012 : primary bolt draws in (pathLength 0 → 1)
- *   0.003 – 0.015 : secondary offset bolt draws in
- *   0.010 – 0.025 : impact shockwave ring expands and fades
- *   0.011 – 0.024 : full-screen flash peaks at 0.016
- *   0.005 – 0.028 : residual icy wash around the plate
+ *   0.000 - 0.012 : primary bolt draws in (pathLength 0 → 1)
+ *   0.003 - 0.015 : secondary offset bolt draws in
+ *   0.010 - 0.025 : impact shockwave ring expands and fades
+ *   0.011 - 0.024 : full-screen flash peaks at 0.016
+ *   0.005 - 0.028 : residual icy wash around the plate
  */
 export function ScrollLightning({
   progress,

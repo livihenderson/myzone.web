@@ -17,14 +17,14 @@ const DURATION_S = 2.8;
  * Time-driven hero intro. The client flagged that a scroll-locked
  * animation made some visitors unsure whether they should scroll, so the
  * sequence now plays automatically on mount while the section behaves as
- * a normal 100dvh block — the user scrolls past it naturally.
+ * a normal 100dvh block - the user scrolls past it naturally.
  *
  * Timeline (progress 0 → 0.12 over ~2.8s easeOut):
- *   0.000 – 0.028 : lightning bolts strike down, flash, shockwave
- *   0.010 – 0.022 : neon MYZONE logo flashes in at plate center
- *   0.013 – 0.080 : plate fractures diagonally, halves fly out and fade
- *   0.080 – 0.100 : neon logo grows from plate-size to full viewport
- *   0.100 – 0.120 : logo dims, slogan reveals in the same crossfade
+ *   0.000 - 0.028 : lightning bolts strike down, flash, shockwave
+ *   0.010 - 0.022 : neon MYZONE logo flashes in at plate center
+ *   0.013 - 0.080 : plate fractures diagonally, halves fly out and fade
+ *   0.080 - 0.100 : neon logo grows from plate-size to full viewport
+ *   0.100 - 0.120 : logo dims, slogan reveals in the same crossfade
  *   0.120 +       : final composition held
  */
 export function Hero() {

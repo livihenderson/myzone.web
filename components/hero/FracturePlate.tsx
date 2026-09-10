@@ -25,14 +25,14 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
       aria-hidden="true"
     >
       <defs>
-        {/* Matte cast-iron body — uniform dark with subtle depth */}
+        {/* Matte cast-iron body - uniform dark with subtle depth */}
         <radialGradient id={`body-${id}`} cx="30%" cy="26%" r="92%">
           <stop offset="0%" stopColor="#2A2F38" />
           <stop offset="50%" stopColor="#141820" />
           <stop offset="100%" stopColor="#070A0E" />
         </radialGradient>
 
-        {/* Outer rim bevel — vertical world-space gradient so top edge is
+        {/* Outer rim bevel - vertical world-space gradient so top edge is
             lit and bottom edge is shadowed. */}
         <linearGradient
           id={`rim-${id}`}
@@ -47,7 +47,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
           <stop offset="100%" stopColor="rgba(0,0,0,0.65)" />
         </linearGradient>
 
-        {/* Spoke ridge — dark / mid / light / mid / dark perpendicular to
+        {/* Spoke ridge - dark / mid / light / mid / dark perpendicular to
             spoke axis, applied in spoke-local coords so it follows each
             rotated spoke and gives a raised-ridge read. */}
         <linearGradient
@@ -65,7 +65,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
           <stop offset="100%" stopColor="#0A0E15" />
         </linearGradient>
 
-        {/* Hub cylindrical side wall — diagonal gradient for the raised-cylinder read */}
+        {/* Hub cylindrical side wall - diagonal gradient for the raised-cylinder read */}
         <linearGradient
           id={`hubCyl-${id}`}
           x1="-44"
@@ -85,14 +85,14 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
           <stop offset="100%" stopColor="#11151E" />
         </radialGradient>
 
-        {/* Center hole depth gradient — simulates light falling into the hole */}
+        {/* Center hole depth gradient - simulates light falling into the hole */}
         <radialGradient id={`hole-${id}`} cx="50%" cy="40%" r="55%">
           <stop offset="0%" stopColor="#0A0D12" />
           <stop offset="60%" stopColor="#020305" />
           <stop offset="100%" stopColor="#000000" />
         </radialGradient>
 
-        {/* Cast-iron grain — a fine noise overlay that gives the plate
+        {/* Cast-iron grain - a fine noise overlay that gives the plate
             surface an authentic rough-cast texture, clipped to the source
             shape so it only appears on the plate. */}
         <filter
@@ -119,7 +119,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
 
         {/* Arc paths for engraved text. Radius 90 places "STANDARD" /
             "BARBELL" close to the rim but with a comfortable margin
-            before the edge — matches a classic Olympic-plate layout. */}
+            before the edge - matches a classic Olympic-plate layout. */}
         <path
           id={`topArc-${id}`}
           d="M -40 -78 A 90 90 0 0 1 40 -78"
@@ -142,7 +142,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
         style={{ filter: "blur(8px)" }}
       />
 
-      {/* Plate body — matte cast iron */}
+      {/* Plate body - matte cast iron */}
       <circle r="110" fill={`url(#body-${id})`} />
 
       {/* Cast-iron grain overlay */}
@@ -152,11 +152,11 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
       <circle r="110" fill="none" stroke={`url(#rim-${id})`} strokeWidth="4.5" />
       {/* Crisp outer edge */}
       <circle r="110" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="0.5" />
-      {/* Inner rim shadow — where the rim meets the flat plate surface */}
+      {/* Inner rim shadow - where the rim meets the flat plate surface */}
       <circle r="103" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1.5" />
       <circle r="102" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
 
-      {/* Faint casting rings on the flat plate face — machining marks */}
+      {/* Faint casting rings on the flat plate face - machining marks */}
       <circle r="92" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="0.4" />
       <circle r="75" fill="none" stroke="rgba(0,0,0,0.3)" strokeWidth="0.3" />
 
@@ -164,7 +164,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
       {SPOKE_ANGLES.map((angle) => (
         <g key={angle} transform={`rotate(${angle})`}>
           <polygon points={SPOKE_POINTS} fill={`url(#spoke-${id})`} />
-          {/* Upper edge highlight — reinforces the raised-ridge read */}
+          {/* Upper edge highlight - reinforces the raised-ridge read */}
           <line
             x1="38"
             y1="-5"
@@ -301,7 +301,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
         </text>
       </g>
 
-      {/* Raised central hub — cylindrical with beveled top rim.
+      {/* Raised central hub - cylindrical with beveled top rim.
           Wider outer ring (r=44) + narrower top surface (r=36) = visible
           8-unit cylinder side wall with gradient shading. */}
       <circle r="44" fill={`url(#hubCyl-${id})`} />
@@ -334,7 +334,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
       {/* Deep recessed center hole with subtle chamfer */}
       <circle r="12" fill={`url(#hole-${id})`} />
       <circle r="12" fill="none" stroke="rgba(0,0,0,0.95)" strokeWidth="1.8" />
-      {/* Top rim highlight — light catching the chamfered inner edge */}
+      {/* Top rim highlight - light catching the chamfered inner edge */}
       <path
         d="M -10 -4 A 11 11 0 0 1 10 -4"
         fill="none"
@@ -342,7 +342,7 @@ function PlateBody({ half }: { half: "upper" | "lower" }) {
         strokeWidth="0.6"
         strokeLinecap="round"
       />
-      {/* Bottom rim shadow — deep shadow on far inner wall */}
+      {/* Bottom rim shadow - deep shadow on far inner wall */}
       <path
         d="M -9 4 A 10 10 0 0 0 9 4"
         fill="none"
@@ -374,14 +374,14 @@ export function FracturePlate({
   progress: MotionValue<number>;
 }) {
   // Once the fracture completes, the halves are removed from the DOM
-  // entirely — no more rendering, no more filter ghosts. They remount if
+  // entirely - no more rendering, no more filter ghosts. They remount if
   // the user scrolls back up past the threshold.
   const [showHalves, setShowHalves] = useState(true);
   useMotionValueEvent(progress, "change", (v) => {
     setShowHalves(v <= HALVES_UNMOUNT_THRESHOLD);
   });
 
-  // Halves start drifting at 0.013 — right at lightning impact. They scale
+  // Halves start drifting at 0.013 - right at lightning impact. They scale
   // down as they fly apart and are fully gone by progress 0.09.
   const upperX = useTransform(progress, [0.013, 0.09], [0, 340]);
   const upperY = useTransform(progress, [0.013, 0.09], [0, -40]);
@@ -433,7 +433,7 @@ export function FracturePlate({
       aria-hidden="true"
       style={{ perspective: "1200px", x: shakeX, y: shakeY }}
     >
-      {/* Break flash — covers the plate area briefly at the instant of cracking */}
+      {/* Break flash - covers the plate area briefly at the instant of cracking */}
       <motion.div
         className="pointer-events-none absolute inset-[-20%]"
         style={{
@@ -479,7 +479,7 @@ export function FracturePlate({
           </>
         ) : null}
 
-        {/* Jagged crack polyline — natural-looking fracture seam */}
+        {/* Jagged crack polyline - natural-looking fracture seam */}
         <motion.svg
           className="absolute inset-0 h-full w-full"
           viewBox="0 0 100 100"

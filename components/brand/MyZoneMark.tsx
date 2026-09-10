@@ -3,10 +3,10 @@ import type { SVGProps } from "react";
 /**
  * The MYZONE M mark, rendered as pure SVG.
  *
- * Geometry is lifted directly from `public/MY ZONE_modre_logo-2.svg` — 10
+ * Geometry is lifted directly from `public/MY ZONE_modre_logo-2.svg` - 10
  * rounded-end bars at the designer's exact coordinates. Defaults to
  * `currentColor` so it inherits the surrounding text color; pass `fill`
- * to override. Nothing animated here — the hero wraps the same geometry
+ * to override. Nothing animated here - the hero wraps the same geometry
  * with its own motion + filter stack.
  */
 export function MyZoneMark({

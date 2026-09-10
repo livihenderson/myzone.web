@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
-// Static OG image (1200x630) — dark MyZone brand card with neon-ice slogan.
-export const alt = "MyZone — Soukromé fitness, Kladno";
+// Static OG image (1200x630) - dark MyZone brand card with neon-ice slogan.
+export const alt = "MyZone - Soukromé fitness, Kladno";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
